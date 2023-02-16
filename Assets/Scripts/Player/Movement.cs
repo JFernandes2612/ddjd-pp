@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    Vector3 input;
-    Rigidbody rb;
+    private Vector3 input;
+    private Rigidbody rb;
     [SerializeField]
-    private float moveSpeed = 5f;
+    private float moveSpeed = 15f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,6 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(input * moveSpeed);
+        transform.position = transform.position + (input * moveSpeed * Time.deltaTime);
     }
 }
