@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Drone : MonoBehaviour
 {
-    private Rigidbody rb;
-    public GameObject player;
+    [SerializeField]
+    private GameObject player;
 
     [SerializeField]
     private float moveSpeed = 5f;
@@ -15,7 +15,7 @@ public class Drone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+
     }
 
     void Update()
@@ -26,7 +26,7 @@ public class Drone : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {   
+    {
         transform.position = transform.position + (moveDirection * moveSpeed * Time.deltaTime);
     }
 }
