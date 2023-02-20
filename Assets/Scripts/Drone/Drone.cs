@@ -15,7 +15,7 @@ public class Drone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("PlayerModel");
     }
 
     void Update()
@@ -28,5 +28,13 @@ public class Drone : MonoBehaviour
     void FixedUpdate()
     {
         transform.position = transform.position + (moveDirection * moveSpeed * Time.deltaTime);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("PlayerProjectile"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
