@@ -26,7 +26,6 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(input + " | " + (input * moveSpeed * Time.deltaTime));
         transform.position = transform.position + (input * moveSpeed * Time.deltaTime);
     }
 }
