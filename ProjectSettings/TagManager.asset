@@ -8,6 +8,7 @@ TagManager:
   - PlayerProjectile
   - EnemyProjectile
   - PlayerModel
+  - ProjectileEmpty
   layers:
   - Default
   - TransparentFX
