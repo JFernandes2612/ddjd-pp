@@ -18,17 +18,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private List<GameObject> spawnedEnemies;
 
-    // Start is called before the first frame update
     void Start()
     {
         spawnedEnemies = new List<GameObject>();
         StartCoroutine(Spawner());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     IEnumerator Spawner()
@@ -41,7 +34,7 @@ public class EnemyController : MonoBehaviour
             GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
             GameObject spawned = Instantiate(enemyToSpawn, spawnPos, Quaternion.identity);
             spawned.transform.parent = gameObject.transform;
-            spawned.GetComponent<Drone>().SetController(GetComponent<EnemyController>());
+            spawned.GetComponent<Drone>().SetEnemyController(GetComponent<EnemyController>());
             spawnedEnemies.Add(spawned);
         }
     }
