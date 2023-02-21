@@ -173,7 +173,6 @@ MonoBehaviour:
   zBound: 15
   enemyPrefabs:
   - {fileID: 1774974643893718006, guid: 98acaae286a4be04cb479b2eab56b4b4, type: 3}
-  spawnedEnemies: []
 --- !u!1 &661955620
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,8 +348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 1327164715}
   bullet: {fileID: 1462741489704342317, guid: 034328aca35f0c84b9ea38872dedad55, type: 3}
-  bulletSpeed: 500
   playerModel: {fileID: 1311216158}
+  bulletSpeed: 500
 --- !u!114 &824205968
 MonoBehaviour:
   m_ObjectHideFlags: 0
