@@ -7,6 +7,8 @@ public class Drone : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
+    private EnemyController enemyController;
+
     [SerializeField]
     private float moveSpeed = 5f;
 
@@ -30,11 +32,21 @@ public class Drone : MonoBehaviour
         transform.position = transform.position + (moveDirection * moveSpeed * Time.deltaTime);
     }
 
+    public void SetController(EnemyController enemyController)
+    {
+        this.enemyController = enemyController;
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("PlayerProjectile"))
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    void Die()
+    {
+        enemyController.RemoveEnemy(gameObject);
     }
 }
