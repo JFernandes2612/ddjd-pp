@@ -15,22 +15,22 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private GameObject[] enemyPrefabs;
 
-    [SerializeField]
     private List<GameObject> spawnedEnemies;
 
+    // Initializes list of spawned enemies and starts the spawning process
     void Start()
     {
         spawnedEnemies = new List<GameObject>();
         StartCoroutine(Spawner());
     }
 
+    // Periodically spawns an enemy
     IEnumerator Spawner()
     {
         while (true)
         {
             yield return new WaitForSeconds(spawnRate);
             Vector3 spawnPos = new Vector3(Random.Range(-xBound, xBound), ySpawnPos, Random.Range(-zBound, zBound));
-            Debug.Log(spawnPos);
             GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
             GameObject spawned = Instantiate(enemyToSpawn, spawnPos, Quaternion.identity);
             spawned.transform.parent = gameObject.transform;
@@ -39,6 +39,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // Removes an enemy from the game
     public void RemoveEnemy(GameObject toRemove)
     {
         spawnedEnemies.Remove(toRemove);

@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    // Scene Object References
     [SerializeField]
     private GameObject shootPoint;
     [SerializeField]
     private GameObject bullet;
     [SerializeField]
-    private float bulletSpeed = 100.0f;
-    [SerializeField]
     private GameObject playerModel;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
+    // Shooting-related fields
+    [SerializeField]
+    private float bulletSpeed = 100.0f;
 
     // Update is called once per frame
     void Update()
