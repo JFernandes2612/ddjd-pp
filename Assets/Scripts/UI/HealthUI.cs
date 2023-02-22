@@ -15,7 +15,9 @@ public class HealthUI : MonoBehaviour
     {
         healthBar = (ProgressBar)GetComponent<UIDocument>().rootVisualElement.Q("Health").Q("HealthBar");
         health = player.GetComponent<Health>();
+    }
 
+    void FixedUpdate() {
         healthBar.highValue = health.getMaxHealth();
         healthBar.value = health.getCurrentHealth();
         healthBar.title =  healthBar.value + "/" + healthBar.highValue;
