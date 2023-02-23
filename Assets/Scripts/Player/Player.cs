@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
     // Scene Object References
     [SerializeField]
@@ -12,19 +12,19 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject playerModel;
 
-    // Movement-related fields
-    private Vector3 input;
-    [SerializeField]
-    private float moveSpeed = 15f;
-
     // Shooting-related fields
     [SerializeField]
     private float bulletSpeed = 100.0f;
 
+    void Start()
+    {
+        moveSpeed = 15f;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        input = GetMoveDirection();
+        moveDirection = GetMoveDirection();
 
         // shooting
         playerModel.transform.rotation = Quaternion.identity;
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     }
 
     // Calculates and returns the player's input
-    Vector3 GetMoveDirection()
+    protected override Vector3 GetMoveDirection()
     {
         // TODO: abstract this and Enemy's GetMoveDirection method
         float inputX = Input.GetAxisRaw("Horizontal");
@@ -59,15 +59,8 @@ public class Player : MonoBehaviour
         return inputVal;
     }
 
-    // Moves the object instance
-    void Move()
-    {
-        // TODO: abstract this and Enemy's Move method
-        transform.position = transform.position + (input * moveSpeed * Time.deltaTime);
-    }
-
     // Destroys this GameObject instance
-    void Die()
+    protected override void Die()
     {
         // TODO: abstract this and Player's Die method
         Destroy(gameObject);
