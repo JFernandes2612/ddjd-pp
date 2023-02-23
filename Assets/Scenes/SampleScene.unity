@@ -339,7 +339,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 824205966}
-  - component: {fileID: 824205968}
   - component: {fileID: 824205967}
   m_Layer: 0
   m_Name: Player
@@ -374,26 +373,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 824205965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d4be657499bdcf4d959937d576cb685, type: 3}
+  m_Script: {fileID: 11500000, guid: 598eca4b7e9c876469c7e5607e1554eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 1327164715}
   bullet: {fileID: 1462741489704342317, guid: 034328aca35f0c84b9ea38872dedad55, type: 3}
   playerModel: {fileID: 1311216158}
-  bulletSpeed: 500
---- !u!114 &824205968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824205965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efd5415212e11b04890308633cbc706c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   moveSpeed: 15
+  bulletSpeed: 500
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
