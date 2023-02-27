@@ -463,3 +463,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  roomSpawnPoint: {fileID: 0}
+  rooms:
+  - {fileID: 7553160696557495097, guid: a7a92fe0d74f01a4c8ab2e901a660568, type: 3}
