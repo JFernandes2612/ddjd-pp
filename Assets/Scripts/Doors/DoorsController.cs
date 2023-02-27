@@ -10,7 +10,6 @@ public class DoorsController : MonoBehaviour
 
     // Distance from mid one door to dead center
     private float midDoorDistanceDeadCenter = 4.95f;
-    private float doorHeight = 30.0f;
     private bool open = false;
 
 
