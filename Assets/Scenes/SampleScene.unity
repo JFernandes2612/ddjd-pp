@@ -875,6 +875,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 836629315}
     m_Modifications:
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 824205965}
     - target: {fileID: 6734323240171389666, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: m_Name
       value: MidArea
@@ -1023,6 +1027,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 836629315}
     m_Modifications:
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 824205965}
     - target: {fileID: 6734323240171389666, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: m_Name
       value: BigWallPart1
@@ -1472,6 +1480,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 836629315}
     m_Modifications:
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 824205965}
     - target: {fileID: 6734323240171389666, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: m_Name
       value: BigWallPart2
@@ -1608,7 +1620,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 449
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 10739610639688148a835bcb48a72745, type: 2}
   m_TargetDisplay: 0
@@ -2268,6 +2280,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 836629315}
     m_Modifications:
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 824205965}
     - target: {fileID: 6734323240171389666, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: m_Name
       value: BigArea
@@ -2364,6 +2380,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 836629315}
     m_Modifications:
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 824205965}
     - target: {fileID: 6734323240171389666, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: m_Name
       value: SmallArea
@@ -2923,6 +2943,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 836629315}
     m_Modifications:
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 824205965}
     - target: {fileID: 6734323240171389666, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: m_Name
       value: BigWallPart3
