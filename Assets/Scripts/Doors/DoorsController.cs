@@ -48,12 +48,13 @@ public class DoorsController : MonoBehaviour
         }
 
         // Clamp Door Rotation Values
-        door1.localEulerAngles = Vector3.up * Mathf.Clamp(door1.localEulerAngles.y, 0f, 110f);
-        door2.localEulerAngles = Vector3.up * Mathf.Clamp(door2.localEulerAngles.y, 70f, 180f);
+        //! SILL HAVE TO FIX THIS
+        door1.localEulerAngles = Vector3.up * Mathf.Clamp(door1.localEulerAngles.y, 0f, 85f);
+        door2.localEulerAngles = Vector3.up * Mathf.Clamp(door2.localEulerAngles.y, 95f, 180f);
     }
 
     void OpenDoors() {
-        float toque = 1000.0f;
+        float toque = 850.0f;
         door1Rb.constraints &= ~RigidbodyConstraints.FreezeRotationY;
         door1Rb.AddTorque(Vector3.up * toque);
 
