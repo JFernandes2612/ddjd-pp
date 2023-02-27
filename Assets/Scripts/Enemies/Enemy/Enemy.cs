@@ -8,11 +8,15 @@ public abstract class Enemy : Entity
     protected EnemyController enemyController;
     protected GameObject player;
 
+    protected int hp;
+
+    protected abstract void SetFields();
+
     // Fetches reference to the player model on the first frame
     void Start()
     {
-        moveSpeed = 5f;
         player = GameObject.FindGameObjectWithTag("PlayerModel");
+        SetFields();
     }
 
     // Sets a reference to the EnemyController script component of the Enemy Controller GameObject
@@ -38,7 +42,8 @@ public abstract class Enemy : Entity
     {
         if (collision.gameObject.CompareTag("PlayerProjectile"))
         {
-            Die();
+            hp--;
+            if(hp == 0) Die();
         }
     }
 }
