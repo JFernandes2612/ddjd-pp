@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthOrbController : MonoBehaviour
+public class Collectable : MonoBehaviour
 {
-    [SerializeField]
     private Transform player;
-
     private float minCatchDistance = 5.0f;
     private Rigidbody rb;
     private float catchForce = 2500.0f;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("PlayerModel").transform;
         rb = GetComponent<Rigidbody>();
     }
 

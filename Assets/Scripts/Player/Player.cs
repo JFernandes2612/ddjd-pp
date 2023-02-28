@@ -80,10 +80,4 @@ public class Player : Entity
     public void removeCoins(int coinsToRemove) {
         coins -= coinsToRemove;
     }
-
-    private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.tag == "HealthOrb") {
-            //! HEAL 1 HP NICE POGGERS
-        }
-    }
 }
