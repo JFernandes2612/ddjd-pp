@@ -1888,7 +1888,7 @@ GameObject:
   - component: {fileID: 865577798}
   - component: {fileID: 865577797}
   m_Layer: 6
-  m_Name: Sphere
+  m_Name: MiniMapMark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
