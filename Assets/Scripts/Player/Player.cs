@@ -16,6 +16,9 @@ public class Player : Entity
     [SerializeField]
     private float bulletSpeed = 100.0f;
 
+    // Coins
+    private int coins = 0;
+
     void Start()
     {
         moveSpeed = 15f;
@@ -64,5 +67,17 @@ public class Player : Entity
     {
         // TODO: abstract this and Player's Die method
         Destroy(gameObject);
+    }
+
+    public int getCoins() {
+        return coins;
+    }
+
+    public void addCoins(int coinsToAdd) {
+        coins += coinsToAdd;
+    }
+
+    public void removeCoins(int coinsToRemove) {
+        coins -= coinsToRemove;
     }
 }

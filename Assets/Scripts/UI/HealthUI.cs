@@ -10,8 +10,9 @@ public class HealthUI : MonoBehaviour
 
     private Health health;
     private ProgressBar healthBar;
-    // Start is called before the first frame update
     private float initialWidth;
+
+    // Start is called before the first frame update
     void Start()
     {
         healthBar = (ProgressBar)GetComponent<UIDocument>().rootVisualElement.Q("Health").Q("HealthBar");
@@ -21,7 +22,7 @@ public class HealthUI : MonoBehaviour
 
     void FixedUpdate() {
         healthBar.highValue = health.getMaxHealth();
-        healthBar.style.width = new StyleLength(initialWidth + healthBar.highValue * 0.05f);
+        healthBar.style.width = new StyleLength(Mathf.Min(initialWidth + healthBar.highValue * 0.05f, initialWidth*2));
         healthBar.value = health.getCurrentHealth();
         healthBar.title =  healthBar.value + "/" + healthBar.highValue;
     }
