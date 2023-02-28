@@ -17,11 +17,24 @@ public class EnemyController : MonoBehaviour
 
     private List<GameObject> spawnedEnemies;
 
+    private Coroutine spawningCoroutine;
+
     // Initializes list of spawned enemies and starts the spawning process
     void Start()
     {
         spawnedEnemies = new List<GameObject>();
-        StartCoroutine(Spawner());
+    }
+
+    public void StartSpawning() {
+        spawningCoroutine = StartCoroutine(Spawner());
+    }
+
+    public void StopSpawning() {
+        StopCoroutine(spawningCoroutine);
+    }
+
+    public bool stillHasEnemies() {
+        return spawnedEnemies.Count > 0;
     }
 
     // Periodically spawns an enemy
