@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class PlayerProjectile : Projectile
 {
-    protected override void SetFields(){
-        damage = 2;
-    }
-
     // Handles collisions between this and other object instances
     void OnCollisionEnter(Collision collision)
     {

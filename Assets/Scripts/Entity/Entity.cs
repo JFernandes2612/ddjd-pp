@@ -6,6 +6,7 @@ public abstract class Entity : MonoBehaviour
 {
     // Movement-related fields
     protected Vector3 moveDirection;
+    [SerializeField]
     protected float moveSpeed;
 
     protected abstract Vector3 GetMoveDirection();

@@ -130,3 +130,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xBound: 200
   zBound: 200
+  damage: 1

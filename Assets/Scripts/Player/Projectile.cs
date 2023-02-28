@@ -10,16 +10,13 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField]
     private float zBound = 50f;
 
-    // damage dealt by contact with this projectile
+    [SerializeField]
     protected int damage;
-
-    protected abstract void SetFields();
 
     // Fetches reference to the projectiles Empty GameObject on the first frame and sets it to this Projectile instance's transform's parent
     void Start()
     {
         transform.parent = GameObject.FindGameObjectWithTag("ProjectileEmpty").transform;
-        SetFields();
     }
 
     void Update()

@@ -16,7 +16,7 @@ public abstract class Enemy : Entity
     private GameObject enemyUI;
     private Slider healthBar;
 
-    // damage dealt by contact with the enemy
+    [SerializeField]
     protected int damage;
 
 
@@ -26,14 +26,11 @@ public abstract class Enemy : Entity
     [SerializeField]
     protected float[] collectablesDropChances;
 
-    protected abstract void SetFields();
-
     // Fetches reference to the player model on the first frame
     void Start()
     {
         Debug.Assert(collectables.Length == collectablesDropChances.Length);
         player = GameObject.FindGameObjectWithTag("PlayerModel");
-        SetFields();
         CreateEnemyUI();
     }
 
