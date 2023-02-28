@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 
     private int wave = 0;
     private bool pause = false;
-    private float baseRoundTime = 10.0f;
+    private float baseRoundTime = 120.0f;
     private float pauseTime = 60.0f;
 
     private float remainingTime;

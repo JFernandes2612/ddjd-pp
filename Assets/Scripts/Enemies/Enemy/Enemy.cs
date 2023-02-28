@@ -18,6 +18,10 @@ public abstract class Enemy : Entity
     private GameObject enemyUI;
     private Slider hpBar;
 
+
+    [SerializeField]
+    private GameObject[] collectables;
+
     protected abstract void SetFields();
 
     // Fetches reference to the player model on the first frame
@@ -66,6 +70,13 @@ public abstract class Enemy : Entity
     void FixedUpdate()
     {
         Move();
+    }
+
+    protected override void Die() {
+        foreach (GameObject collectable in collectables) {
+            Instantiate(collectable, transform.position, Quaternion.identity);
+        }
+        enemyController.RemoveEnemy(gameObject);
     }
 
     // Handles collisions between this and other object instances

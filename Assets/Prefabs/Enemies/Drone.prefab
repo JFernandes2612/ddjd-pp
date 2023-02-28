@@ -112,6 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCanvasPrefab: {fileID: 3153150588936743938, guid: e7d69bf7d554d2ada9c9b57494fc6d72, type: 3}
+  collectables:
+  - {fileID: 5823442791628935116, guid: e043e849458bccc45a08a30aa5bb4d80, type: 3}
+  - {fileID: 6677340210668900196, guid: 11a8607b0955da54a87f4a9b0a0d51f6, type: 3}
 --- !u!54 &1774974643893718004
 Rigidbody:
   m_ObjectHideFlags: 0
