@@ -30,6 +30,8 @@ public class DoorsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         door1 = transform.GetChild(1);
         door1Rb = door1.GetComponent<Rigidbody>();
 

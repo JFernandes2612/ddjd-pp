@@ -13,7 +13,7 @@ public class Collectable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("PlayerModel").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody>();
         rb.AddForce(Vector3.up * dropForce + Vector3.forward * Mathf.Cos(Random.Range(0, 180)) * dropForce / 4f + Vector3.right * Mathf.Cos(Random.Range(0, 180)) * dropForce / 4f);
         rb.AddTorque(Vector3.one * dropTorque);
@@ -33,7 +33,7 @@ public class Collectable : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.tag == "PlayerModel")
+        if (other.gameObject.tag == "Player")
             Destroy(gameObject);
     }
 }

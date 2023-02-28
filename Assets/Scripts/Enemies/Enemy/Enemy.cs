@@ -30,7 +30,7 @@ public abstract class Enemy : Entity
     void Start()
     {
         Debug.Assert(collectables.Length == collectablesDropChances.Length);
-        player = GameObject.FindGameObjectWithTag("PlayerModel");
+        player = GameObject.FindGameObjectWithTag("Player");
         CreateEnemyUI();
     }
 
