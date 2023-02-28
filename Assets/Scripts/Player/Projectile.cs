@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // Scene Object References
-    private Transform projectilesEmpty;
-
     // Bound checking-related fields
     [SerializeField]
     private float xBound = 50f;
@@ -19,8 +16,7 @@ public class Projectile : MonoBehaviour
     // Fetches reference to the projectiles Empty GameObject on the first frame and sets it to this Projectile instance's transform's parent
     void Start()
     {
-        projectilesEmpty = GameObject.FindGameObjectWithTag("ProjectileEmpty").transform;
-        transform.parent = projectilesEmpty;
+        transform.parent = GameObject.FindGameObjectWithTag("ProjectileEmpty").transform;
     }
 
     void Update()

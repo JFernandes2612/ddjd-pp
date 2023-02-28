@@ -11,6 +11,7 @@ TagManager:
   - ProjectileEmpty
   - HealthOrb
   - Coin
+  - CollectablesEmpty
   layers:
   - Default
   - TransparentFX

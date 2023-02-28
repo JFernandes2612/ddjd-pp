@@ -74,7 +74,7 @@ public abstract class Enemy : Entity
 
     protected override void Die() {
         foreach (GameObject collectable in collectables) {
-            Instantiate(collectable, transform.position, Quaternion.identity);
+            GameObject instantiatedCollectable = Instantiate(collectable, transform.position, Quaternion.identity);
         }
         enemyController.RemoveEnemy(gameObject);
     }
