@@ -13,10 +13,8 @@ public abstract class Enemy : Entity
     [SerializeField]
     private GameObject enemyCanvasPrefab;
     private Vector3 canvasOffsets = new Vector3(0, 1.0f, 0.7f);
-
-    protected int hp;
     private GameObject enemyUI;
-    private Slider hpBar;
+    private Slider healthBar;
 
     protected abstract void SetFields();
 
@@ -43,17 +41,17 @@ public abstract class Enemy : Entity
         Quaternion rot = Quaternion.Euler(75, 0, 0);
         enemyUI = Instantiate(enemyCanvasPrefab, pos, rot);
         enemyUI.transform.SetParent(transform, true);
-        hpBar = enemyUI.transform.GetChild(0).GetComponent<Slider>();
-        SetMaxHealth();
+        healthBar = enemyUI.transform.GetChild(0).GetComponent<Slider>();
+        SetSlider();
     }
 
-    private void SetMaxHealth(){
-        hpBar.maxValue = hp;
-        hpBar.value = hp;
+    private void SetSlider(){
+        healthBar.maxValue = health;
+        healthBar.value = health;
     }
 
-    private void UpdateHealth(){
-        hpBar.value = hp;
+    private void UpdateSlider(){
+        healthBar.value = health;
     }
 
     // Input gathering
@@ -73,9 +71,9 @@ public abstract class Enemy : Entity
     {
         if (collision.gameObject.CompareTag("PlayerProjectile"))
         {
-            hp--;
-            UpdateHealth();
-            if(hp == 0) Die();
+            health--;
+            UpdateSlider();
+            if(health == 0) Die();
         }
     }
 }

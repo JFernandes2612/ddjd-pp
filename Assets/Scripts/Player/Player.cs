@@ -15,7 +15,6 @@ public class Player : Entity
     // Shooting-related fields
     [SerializeField]
     private float bulletSpeed = 100.0f;
-
     void Start()
     {
         moveSpeed = 15f;

@@ -6,7 +6,7 @@ public class Drone : Enemy
 {
     protected override void SetFields(){
         moveSpeed = 5f;
-        hp = 5;
+        health = 5;
     }
     // Calculates and returns the player's input
     protected override Vector3 GetMoveDirection()
