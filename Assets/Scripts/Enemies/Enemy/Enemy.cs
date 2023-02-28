@@ -16,6 +16,9 @@ public abstract class Enemy : Entity
     private GameObject enemyUI;
     private Slider healthBar;
 
+    // damage dealt by contact with the enemy
+    protected int damage;
+
     protected abstract void SetFields();
 
     // Fetches reference to the player model on the first frame
@@ -30,6 +33,10 @@ public abstract class Enemy : Entity
     public void SetEnemyController(EnemyController enemyController)
     {
         this.enemyController = enemyController;
+    }
+
+    public int getDamage() {
+        return damage;
     }
 
     public Vector3 GetCanvasOffsets(){
@@ -71,9 +78,10 @@ public abstract class Enemy : Entity
     {
         if (collision.gameObject.CompareTag("PlayerProjectile"))
         {
-            health--;
+            Projectile projScript = collision.gameObject.GetComponent<Projectile>();
+            Damage(projScript.getDamage());
             UpdateSlider();
-            if(health == 0) Die();
+            if(health <= 0) Die();
         }
     }
 }

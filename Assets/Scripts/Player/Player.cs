@@ -64,4 +64,21 @@ public class Player : Entity
         // TODO: abstract this and Player's Die method
         Destroy(gameObject);
     }
+
+    // Handles collisions between this and other object instances
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyProjectile"))
+        {
+            Projectile projScript = collision.gameObject.GetComponent<Projectile>();
+            health -= projScript.getDamage();
+            if(health <= 0) Die();
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Enemy enemyScript = collision.gameObject.GetComponent<Enemy>();
+            Damage(enemyScript.getDamage());
+            if(health <= 0) Die();
+        }
+    }
 }

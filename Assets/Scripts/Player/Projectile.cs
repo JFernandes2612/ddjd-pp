@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public abstract class Projectile : MonoBehaviour
 {
     // Scene Object References
     private Transform projectilesEmpty;
@@ -13,19 +13,26 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private float zBound = 50f;
 
-    // TODO: make abstract and override once we actually have some more guns and projectile types
-    // protected abstract void DestroyProjectile();
+    // damage dealt by contact with this projectile
+    protected int damage;
+
+    protected abstract void SetFields();
 
     // Fetches reference to the projectiles Empty GameObject on the first frame and sets it to this Projectile instance's transform's parent
     void Start()
     {
         projectilesEmpty = GameObject.FindGameObjectWithTag("ProjectileEmpty").transform;
         transform.parent = projectilesEmpty;
+        SetFields();
     }
 
     void Update()
     {
         CheckBounds();
+    }
+
+    public int getDamage() {
+        return damage;
     }
 
     // Verifies if the projectile is within the expected bounds. Destroys it if it leaves them
