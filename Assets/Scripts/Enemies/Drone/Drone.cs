@@ -17,11 +17,4 @@ public class Drone : Enemy
         dir.Normalize();
         return dir;
     }
-
-    // Destroys this GameObject instance
-    protected override void Die()
-    {
-        // TODO: abstract this and Player's Die method
-        enemyController.RemoveEnemy(gameObject);
-    }
 }

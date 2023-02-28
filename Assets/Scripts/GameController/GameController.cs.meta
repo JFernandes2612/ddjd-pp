@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: d3b928806740784498538d1346274dd0
+guid: 9648c1b2a89f6294eabd7e0c528b0ee1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - enemyCanvasPrefab: {fileID: 3153150588936743938, guid: e7d69bf7d554d2ada9c9b57494fc6d72, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

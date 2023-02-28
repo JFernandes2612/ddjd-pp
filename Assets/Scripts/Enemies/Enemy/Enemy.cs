@@ -19,11 +19,19 @@ public abstract class Enemy : Entity
     // damage dealt by contact with the enemy
     protected int damage;
 
+
+    [SerializeField]
+    private GameObject[] collectables;
+
+    [SerializeField]
+    protected float[] collectablesDropChances;
+
     protected abstract void SetFields();
 
     // Fetches reference to the player model on the first frame
     void Start()
     {
+        Debug.Assert(collectables.Length == collectablesDropChances.Length);
         player = GameObject.FindGameObjectWithTag("PlayerModel");
         SetFields();
         CreateEnemyUI();
@@ -71,6 +79,15 @@ public abstract class Enemy : Entity
     void FixedUpdate()
     {
         Move();
+    }
+
+    protected override void Die() {
+        for (int i = 0; i < collectables.Length; i++) {
+            int quantity = (int)collectablesDropChances[i] + (Random.Range(0.0f, 1.0f) < collectablesDropChances[i] - (int)collectablesDropChances[i] ? 1 : 0);
+            for (int c = 0; c < quantity; c++)
+                Instantiate(collectables[i], transform.position, Quaternion.identity);
+        }
+        enemyController.RemoveEnemy(gameObject);
     }
 
     // Handles collisions between this and other object instances

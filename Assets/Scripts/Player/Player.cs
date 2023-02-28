@@ -15,6 +15,10 @@ public class Player : Entity
     // Shooting-related fields
     [SerializeField]
     private float bulletSpeed = 100.0f;
+
+    // Coins
+    private int coins = 0;
+
     void Start()
     {
         moveSpeed = 15f;
@@ -80,5 +84,17 @@ public class Player : Entity
             Damage(enemyScript.getDamage());
             if(health <= 0) Die();
         }
+    }
+    
+    public int getCoins() {
+        return coins;
+    }
+
+    public void addCoins(int coinsToAdd) {
+        coins += coinsToAdd;
+    }
+
+    public void removeCoins(int coinsToRemove) {
+        coins -= coinsToRemove;
     }
 }
