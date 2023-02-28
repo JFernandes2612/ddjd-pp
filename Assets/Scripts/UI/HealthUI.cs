@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class HealthUI : MonoBehaviour
 {
     [SerializeField]
-    private Entity entity;
+    private Entity playerEntity;
     private ProgressBar healthBar;
     private float initialWidth;
 
@@ -15,13 +15,12 @@ public class HealthUI : MonoBehaviour
     {
         healthBar = (ProgressBar)GetComponent<UIDocument>().rootVisualElement.Q("Health").Q("HealthBar");
         initialWidth = 250.0f;
-        entity = GetComponent<Entity>();
     }
 
     void FixedUpdate() {
-        healthBar.highValue = entity.GetMaxHealth();
+        healthBar.highValue = playerEntity.GetMaxHealth();
         healthBar.style.width = new StyleLength(Mathf.Min(initialWidth + healthBar.highValue * 0.05f, initialWidth*2));
-        healthBar.value = entity.GetCurrentHealth();
+        healthBar.value = playerEntity.GetCurrentHealth();
         healthBar.title =  healthBar.value + "/" + healthBar.highValue;
     }
 }
