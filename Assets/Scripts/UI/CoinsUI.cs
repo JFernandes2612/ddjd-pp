@@ -18,6 +18,6 @@ public class CoinsUI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        numberOfCoinsUI.text = playerData.getCoins().ToString();
+        numberOfCoinsUI.text = playerData.GetCoins().ToString();
     }
 }

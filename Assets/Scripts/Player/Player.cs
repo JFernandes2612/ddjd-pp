@@ -74,25 +74,36 @@ public class Player : Entity
         {
             Projectile projScript = collision.gameObject.GetComponent<Projectile>();
             health -= projScript.getDamage();
-            if(health <= 0) Die();
+            if (health <= 0) Die();
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
             Enemy enemyScript = collision.gameObject.GetComponent<Enemy>();
             Damage(enemyScript.getDamage());
-            if(health <= 0) Die();
+            if (health <= 0) Die();
+        }
+        else if (collision.gameObject.CompareTag("Coin"))
+        {
+            AddCoins(1);
+        }
+        else if (collision.gameObject.CompareTag("HealthOrb"))
+        {
+            Heal(1);
         }
     }
-    
-    public int getCoins() {
+
+    public int GetCoins()
+    {
         return coins;
     }
 
-    public void addCoins(int coinsToAdd) {
+    public void AddCoins(int coinsToAdd)
+    {
         coins += coinsToAdd;
     }
 
-    public void removeCoins(int coinsToRemove) {
+    public void RemoveCoins(int coinsToRemove)
+    {
         coins -= coinsToRemove;
     }
 }
