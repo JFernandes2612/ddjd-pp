@@ -21,7 +21,7 @@ public class HealthUI : MonoBehaviour
 
     void FixedUpdate() {
         healthBar.highValue = health.getMaxHealth();
-        healthBar.style.width = new StyleLength(initialWidth + healthBar.highValue * 0.05f);
+        healthBar.style.width = new StyleLength(Mathf.Min(initialWidth + healthBar.highValue * 0.05f, initialWidth*2));
         healthBar.value = health.getCurrentHealth();
         healthBar.title =  healthBar.value + "/" + healthBar.highValue;
     }
