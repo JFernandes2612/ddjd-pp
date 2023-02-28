@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 39d9982032dfe1744ad4dbdee58ef6f8, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -283,7 +283,7 @@ Transform:
   - {fileID: 90418358}
   - {fileID: 891738381}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &66213526
 GameObject:
@@ -2212,7 +2212,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 16311
+    m_Bits: 32695
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3724,7 +3724,7 @@ PrefabInstance:
       objectReference: {fileID: 824205965}
     - target: {fileID: 3587409568541471009, guid: 4f2d49700e140594abf798457f96ed0d, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3587409568541471009, guid: 4f2d49700e140594abf798457f96ed0d, type: 3}
       propertyPath: m_LocalPosition.x

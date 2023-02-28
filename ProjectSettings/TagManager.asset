@@ -9,6 +9,7 @@ TagManager:
   - EnemyProjectile
   - PlayerModel
   - ProjectileEmpty
+  - HealthOrb
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Projectiles
   - Player
   - Enemies
-  - 
+  - Collectables
   - 
   - 
   - 
