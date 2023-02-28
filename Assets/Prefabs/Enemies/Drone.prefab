@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1774974643893718010}
   - component: {fileID: 1774974643893718011}
   - component: {fileID: 1774974643893718004}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Drone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCanvasPrefab: {fileID: 3153150588936743938, guid: e7d69bf7d554d2ada9c9b57494fc6d72, type: 3}
-  canvasOffsets: {x: 0, y: 1, z: 0.7}
 --- !u!54 &1774974643893718004
 Rigidbody:
   m_ObjectHideFlags: 0
