@@ -12,6 +12,7 @@ public abstract class Enemy : Entity
     // enemy health par prefab
     [SerializeField]
     private GameObject enemyCanvasPrefab;
+    private Vector3 canvasOffsets = new Vector3(0, 1.0f, 0.7f);
 
     protected int hp;
     private GameObject enemyUI;
@@ -33,11 +34,15 @@ public abstract class Enemy : Entity
         this.enemyController = enemyController;
     }
 
+    public Vector3 GetCanvasOffsets(){
+        return canvasOffsets;
+    }
+
     private void CreateEnemyUI(){
-        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z + 0.7f);
+        Vector3 pos = transform.position + canvasOffsets;
         Quaternion rot = Quaternion.Euler(75, 0, 0);
         enemyUI = Instantiate(enemyCanvasPrefab, pos, rot);
-        enemyUI.transform.parent = transform;
+        enemyUI.transform.SetParent(transform, true);
         hpBar = enemyUI.transform.GetChild(0).GetComponent<Slider>();
         SetMaxHealth();
     }
