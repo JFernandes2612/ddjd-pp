@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1289309167186347684}
   - component: {fileID: 7019329386880544654}
   - component: {fileID: -1646985135075583645}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerProjectile
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
@@ -128,5 +128,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9114910a39f0f8a4ca54abaf1662c743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xBound: 15
-  zBound: 15
+  xBound: 200
+  zBound: 200

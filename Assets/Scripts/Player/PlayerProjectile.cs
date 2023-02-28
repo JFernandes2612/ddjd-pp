@@ -7,7 +7,11 @@ public class PlayerProjectile : Projectile
     // Handles collisions between this and other object instances
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        // Collision with wall or door
+        if (collision.gameObject.layer == 7 || collision.gameObject.layer == 8){
+            DestroyProjectile();
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
         {
             DestroyProjectile();
         }
