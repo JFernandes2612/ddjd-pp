@@ -17,6 +17,9 @@ public class Player : Entity
     // Coins
     private int coins = 0;
 
+    //Perks
+    private Dictionary<PerkType, int> perks = new Dictionary<PerkType, int>();
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -122,6 +125,12 @@ public class Player : Entity
                 default:
                     break;
             }
+
+            if (!perks.ContainsKey(perkType)) {
+                perks[perkType] = 0;
+            }
+
+            perks[perkType]++;
         }
     }
 
@@ -142,5 +151,9 @@ public class Player : Entity
     public void RemoveCoins(int value)
     {
         coins -= value;
+    }
+
+    public Dictionary<PerkType, int> getPerks() {
+        return perks;
     }
 }

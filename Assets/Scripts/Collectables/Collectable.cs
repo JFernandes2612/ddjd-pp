@@ -10,6 +10,8 @@ public class Collectable : MonoBehaviour
     private float catchForce = 2500.0f;
     private float dropForce = 300f;
     private float dropTorque = 100f;
+
+    private bool inRange = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,8 @@ public class Collectable : MonoBehaviour
     {
         float distance = Vector3.Distance(player.position, transform.position);
 
-        if (distance < minCatchDistance) {
+        if (distance < minCatchDistance || inRange) {
+            inRange = true;
             Vector3 forceToPlayer = (player.position - transform.position).normalized;
 
             rb.AddForce(forceToPlayer * Time.fixedDeltaTime * catchForce);
