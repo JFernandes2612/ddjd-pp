@@ -45,15 +45,29 @@ public class EnemyController : MonoBehaviour
         return points;
     }
 
+    private Vector3 CalculateSpawnPos(){
+        float xPos, zPos;
+        bool inCamX;
+        bool inCamY;
+        do {
+            xPos = Random.Range(-xBound, xBound);
+            zPos = Random.Range(-zBound, zBound);
+            Vector3 viewPortPoint = Camera.main.WorldToViewportPoint(new Vector3(xPos, ySpawnPos, zPos));
+            inCamX = viewPortPoint.x < 1.0 && viewPortPoint.x > 0;
+            inCamY = viewPortPoint.y < 1.0 && viewPortPoint.y > 0;
+        } while(inCamX && inCamY);
+
+        return new Vector3(xPos, ySpawnPos, zPos);
+    }
+
     // Periodically spawns an enemy
     IEnumerator Spawner()
     {
         while (true)
         {
             yield return new WaitForSeconds(spawnRate);
-            Vector3 spawnPos = new Vector3(Random.Range(-xBound, xBound), ySpawnPos, Random.Range(-zBound, zBound));
             GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-            GameObject spawned = Instantiate(enemyToSpawn, spawnPos, Quaternion.identity);
+            GameObject spawned = Instantiate(enemyToSpawn, CalculateSpawnPos(), Quaternion.identity);
             spawned.transform.parent = gameObject.transform;
             spawned.GetComponent<Enemy>().SetEnemyController(GetComponent<EnemyController>());
             spawnedEnemies.Add(spawned);
