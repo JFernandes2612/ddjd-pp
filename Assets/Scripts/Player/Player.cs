@@ -7,6 +7,7 @@ public class Player : Entity
     // Weapon related variables
     [SerializeField] // for debug
     List<GameObject> weapons;
+    public int equippedWeapon = 0;
 
     // Coins
     private int coins = 0;
@@ -40,7 +41,9 @@ public class Player : Entity
 
         if (Input.GetMouseButtonDown(0))
         {
-            weapons[0].GetComponent<Weapon>().Shoot();
+            if(equippedWeapon < weapons.Count){
+                weapons[equippedWeapon].GetComponent<Weapon>().Shoot();
+            }
         }
     }
 
