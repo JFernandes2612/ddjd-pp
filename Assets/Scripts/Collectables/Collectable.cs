@@ -11,13 +11,13 @@ public class Collectable : MonoBehaviour
     private float dropForce = 300f;
     private float dropTorque = 100f;
 
-    private bool inRange = false;
+    private bool enteredRange = false;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.up * dropForce + Vector3.forward * Mathf.Cos(Random.Range(0, 180)) * dropForce / 4f + Vector3.right * Mathf.Cos(Random.Range(0, 180)) * dropForce / 4f);
+        rb.AddForce(Vector3.up * dropForce * Random.Range(0.8f, 1.2f) + Vector3.forward * Mathf.Cos(Random.Range(0, 180)) * dropForce / 4f + Vector3.right * Mathf.Cos(Random.Range(0, 180)) * dropForce / 4f);
         rb.AddTorque(Vector3.one * dropTorque);
         transform.parent = GameObject.FindGameObjectWithTag("CollectablesEmpty").transform;
     }
@@ -27,8 +27,8 @@ public class Collectable : MonoBehaviour
     {
         float distance = Vector3.Distance(player.position, transform.position);
 
-        if (distance < minCatchDistance || inRange) {
-            inRange = true;
+        if (distance < minCatchDistance || enteredRange) {
+            enteredRange = true;
             Vector3 forceToPlayer = (player.position - transform.position).normalized;
 
             rb.AddForce(forceToPlayer * Time.fixedDeltaTime * catchForce);
