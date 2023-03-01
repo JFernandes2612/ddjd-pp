@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,17 +23,30 @@ public abstract class Enemy : Entity
     protected int points;
 
 
+    // Collectables drops
     [SerializeField]
     private GameObject[] collectables;
 
     [SerializeField]
-    protected float[] collectablesDropChances;
+    private float[] collectablesDropChances;
+
+
+    // Perks drops
+    [SerializeField]
+    private GameObject[] perks;
+    [SerializeField]
+    private float[] perksDropChances;
 
     // Fetches reference to the player model on the first frame
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        // Assert same sizes
         Debug.Assert(collectables.Length == collectablesDropChances.Length);
+        Debug.Assert(perks.Length == perksDropChances.Length);
+
+        Debug.Assert(perksDropChances.Sum() <= 1.0f);
+
+        rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
         CreateEnemyUI();
     }
@@ -91,6 +105,18 @@ public abstract class Enemy : Entity
             for (int c = 0; c < quantity; c++)
                 Instantiate(collectables[i], transform.position, Quaternion.identity);
         }
+
+        float currentPerkDropChance = 0.0f;
+        float drop = Random.Range(0.0f, 1.0f);
+        for (int i = 0; i < perks.Length; i++) {
+            currentPerkDropChance += perksDropChances[i];
+
+            if (drop < currentPerkDropChance) {
+                Instantiate(perks[i], new Vector3(transform.position.x, -0.575f, transform.position.z), Quaternion.identity);
+                break;
+            }
+        }
+
         enemyController.RemoveEnemy(gameObject);
     }
 

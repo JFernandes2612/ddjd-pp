@@ -11,6 +11,7 @@ TagManager:
   - CollectablesEmpty
   - Coin
   - HealthOrb
+  - Perk
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Player
   - Enemies
   - Collectible
-  - 
+  - Perk
   - 
   - 
   - 

@@ -90,6 +90,39 @@ public class Player : Entity
         {
             Heal(1);
         }
+        else if (collision.gameObject.CompareTag("Perk"))
+        {
+            Perk perk = collision.gameObject.GetComponent<Perk>();
+            PerkType perkType = perk.getType();
+            float quantity = perk.getQuantity();
+
+            switch (perkType)
+            {
+                case PerkType.MaxHealth:
+                    AddMaxHealth((int)quantity);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.transform.parent.gameObject.CompareTag("Perk"))
+        {
+            Perk perk = other.gameObject.transform.parent.gameObject.GetComponent<Perk>();
+            PerkType perkType = perk.getType();
+            float quantity = perk.getQuantity();
+
+            switch (perkType)
+            {
+                case PerkType.MaxHealth:
+                    AddMaxHealth((int)quantity);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     public int GetCoins()
@@ -97,13 +130,17 @@ public class Player : Entity
         return coins;
     }
 
-    public void AddCoins(int coinsToAdd)
-    {
-        coins += coinsToAdd;
+    public bool haveEnoughCoins(int value) {
+        return coins >= value;
     }
 
-    public void RemoveCoins(int coinsToRemove)
+    public void AddCoins(int value)
     {
-        coins -= coinsToRemove;
+        coins += value;
+    }
+
+    public void RemoveCoins(int value)
+    {
+        coins -= value;
     }
 }
