@@ -37,6 +37,10 @@ public abstract class Entity : MonoBehaviour
         return maxHealth;
     }
 
+    public void AddMaxHealth(int value) {
+        maxHealth += value;
+    }
+
     public int GetCurrentHealth() {
         return health;
     }

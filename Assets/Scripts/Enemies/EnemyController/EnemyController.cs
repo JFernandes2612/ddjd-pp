@@ -19,6 +19,9 @@ public class EnemyController : MonoBehaviour
 
     private Coroutine spawningCoroutine;
 
+    private int points;
+
+    private int wave = 0;
     // Initializes list of spawned enemies and starts the spawning process
     void Start()
     {
@@ -26,6 +29,7 @@ public class EnemyController : MonoBehaviour
     }
 
     public void StartSpawning() {
+        wave++;
         spawningCoroutine = StartCoroutine(Spawner());
     }
 
@@ -35,6 +39,10 @@ public class EnemyController : MonoBehaviour
 
     public bool stillHasEnemies() {
         return spawnedEnemies.Count > 0;
+    }
+
+    public int getPoints() {
+        return points;
     }
 
     // Periodically spawns an enemy
@@ -47,7 +55,7 @@ public class EnemyController : MonoBehaviour
             GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
             GameObject spawned = Instantiate(enemyToSpawn, spawnPos, Quaternion.identity);
             spawned.transform.parent = gameObject.transform;
-            spawned.GetComponent<Drone>().SetEnemyController(GetComponent<EnemyController>());
+            spawned.GetComponent<Enemy>().SetEnemyController(GetComponent<EnemyController>());
             spawnedEnemies.Add(spawned);
         }
     }
@@ -55,6 +63,7 @@ public class EnemyController : MonoBehaviour
     // Removes an enemy from the game
     public void RemoveEnemy(GameObject toRemove)
     {
+        points += toRemove.GetComponent<Enemy>().getPoints();
         spawnedEnemies.Remove(toRemove);
         Destroy(toRemove);
     }
