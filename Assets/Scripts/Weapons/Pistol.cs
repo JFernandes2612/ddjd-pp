@@ -6,6 +6,7 @@ public class Pistol : Weapon
 {
     protected override void InstantiateProjectiles(){
         GameObject spawnedProjectile = Instantiate(bulletPrefab, shootPoint.position, bulletPrefab.transform.rotation);
+        spawnedProjectile.GetComponent<Projectile>().SetRange(range);
         spawnedProjectile.GetComponent<Rigidbody>().velocity = shootPoint.forward * bulletSpeed;
     }
 }

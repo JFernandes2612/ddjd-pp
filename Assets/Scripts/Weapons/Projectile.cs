@@ -6,12 +6,20 @@ public abstract class Projectile : MonoBehaviour
 {
     // Bound checking-related fields
     [SerializeField]
-    private float xBound = 50f;
+    private float xBound;
     [SerializeField]
-    private float zBound = 50f;
+    private float yBound;
+    [SerializeField]
+    private float zBound;
 
     [SerializeField]
     protected int damage;
+
+    public void SetRange(float range){
+        xBound = range;
+        yBound = range;
+        zBound = range;
+    }
 
     // Fetches reference to the projectiles Empty GameObject on the first frame and sets it to this Projectile instance's transform's parent
     void Start()
