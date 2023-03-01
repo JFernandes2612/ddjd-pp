@@ -23,6 +23,10 @@ public class Perk : MonoBehaviour
         return quantity;
     }
 
+    private void Start() {
+        transform.parent = GameObject.FindGameObjectWithTag("PerksEmpty").transform;
+    }
+
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Player"))
             Destroy(gameObject);

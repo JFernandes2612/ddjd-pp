@@ -12,6 +12,7 @@ TagManager:
   - Coin
   - HealthOrb
   - Perk
+  - PerksEmpty
   layers:
   - Default
   - TransparentFX
