@@ -18,6 +18,8 @@ public abstract class Enemy : Entity
 
     [SerializeField]
     protected int damage;
+    [SerializeField]
+    protected int points;
 
 
     [SerializeField]

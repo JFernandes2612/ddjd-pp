@@ -132,6 +132,7 @@ MonoBehaviour:
   health: 5
   enemyCanvasPrefab: {fileID: 3153150588936743938, guid: e7d69bf7d554d2ada9c9b57494fc6d72, type: 3}
   damage: 5
+  points: 2
   collectables:
   - {fileID: 5823442791628935116, guid: e043e849458bccc45a08a30aa5bb4d80, type: 3}
   - {fileID: 6677340210668900196, guid: 11a8607b0955da54a87f4a9b0a0d51f6, type: 3}
