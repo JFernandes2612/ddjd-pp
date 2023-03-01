@@ -36,10 +36,7 @@ public abstract class Projectile : MonoBehaviour
     // Verifies if the projectile is within the expected bounds. Destroys it if it leaves them
     void CheckBounds()
     {
-        bool inXBound = transform.position.x < (initPosition.x + range) && transform.position.x > (initPosition.x - range);
-        bool inYBound = transform.position.y < (initPosition.y + range) && transform.position.y > (initPosition.y - range);
-        bool inZBound = transform.position.z < (initPosition.z + range) && transform.position.z > (initPosition.z - range);
-        if (!(inXBound && inZBound))
+        if (Vector3.Distance(transform.position, initPosition) >= range)
         {
             DestroyProjectile();
         }
