@@ -98,12 +98,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1462741489704342317, guid: 034328aca35f0c84b9ea38872dedad55, type: 3}
-  damage: 1
+  damage: 4
   bulletSpeed: 20
   range: 99999
   magazineSize: 16
   reloadSpeed: 3
-  fireRate: 10
+  fireRate: 2
 --- !u!1 &7662981064111359374
 GameObject:
   m_ObjectHideFlags: 0

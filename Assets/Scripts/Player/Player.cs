@@ -37,7 +37,7 @@ public class Player : Entity
             transform.LookAt(new Vector3(raycastHit.point.x, transform.position.y, raycastHit.point.z));
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             primaryWeapon.GetComponent<Weapon>().Shoot();
         }
@@ -142,5 +142,9 @@ public class Player : Entity
     public Dictionary<PerkType, int> getPerks()
     {
         return perks;
+    }
+
+    public GameObject getPrimaryWeapon() {
+        return primaryWeapon;
     }
 }

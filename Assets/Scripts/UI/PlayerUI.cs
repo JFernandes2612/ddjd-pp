@@ -12,38 +12,41 @@ public class PlayerUI : MonoBehaviour
     private ProgressBar healthBar;
     private float healthBarInitialWidth = 250.0f;
 
-    // Coins
-    private Label numberOfCoinsLabel;
-
     // Perks
     private VisualElement perksVisualElement;
+
+    // Weapons
+    private Label weaponAmmoLabel;
+
+    // Coins
+    private Label numberOfCoinsLabel;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        numberOfCoinsLabel = (Label)GetComponent<UIDocument>().rootVisualElement.Q("Coins").Q("CoinsValue");
         healthBar = (ProgressBar)GetComponent<UIDocument>().rootVisualElement.Q("Health").Q("HealthBar");
         perksVisualElement = (VisualElement)GetComponent<UIDocument>().rootVisualElement.Q("Perks");
+        weaponAmmoLabel = (Label)GetComponent<UIDocument>().rootVisualElement.Q("Weapon").Q("WeaponAmmo");
+        numberOfCoinsLabel = (Label)GetComponent<UIDocument>().rootVisualElement.Q("Coins").Q("CoinsValue");
     }
 
-    void updateHealthBar() {
+    private void updateHealthBar()
+    {
         healthBar.highValue = player.GetMaxHealth();
-        healthBar.style.width = new StyleLength(Mathf.Min(healthBarInitialWidth + healthBar.highValue * 0.05f, healthBarInitialWidth*2));
+        healthBar.style.width = new StyleLength(Mathf.Min(healthBarInitialWidth + healthBar.highValue * 0.05f, healthBarInitialWidth * 2));
         healthBar.value = player.GetCurrentHealth();
-        healthBar.title =  healthBar.value + "/" + healthBar.highValue;
+        healthBar.title = healthBar.value + "/" + healthBar.highValue;
     }
 
-    void updateNumberOfCoinsLabel() {
-        numberOfCoinsLabel.text = player.GetCoins().ToString();
-    }
-
-    void updatePerks() {
+    private void updatePerksList()
+    {
         Dictionary<PerkType, int> perks = player.getPerks();
 
-        foreach (KeyValuePair<PerkType, int> de in perks) {
+        foreach (KeyValuePair<PerkType, int> de in perks)
+        {
             VisualElement perkVisualElement = perksVisualElement.Q(de.Key.ToString());
-            if (perkVisualElement == null) {
+            if (perkVisualElement == null)
+            {
 
                 perkVisualElement = new VisualElement();
                 perkVisualElement.name = de.Key.ToString();
@@ -54,16 +57,28 @@ public class PlayerUI : MonoBehaviour
             else
             {
                 Label text = (Label)perkVisualElement.ElementAt(0);
-                text.text = string.Format("<b>{0}:</b> {1}",de.Key, de.Value);
+                text.text = string.Format("<b>{0}:</b> {1}", de.Key, de.Value);
             }
         }
+    }
+
+        private void updateWeaponUI()
+    {
+        Weapon primaryWeapon = player.getPrimaryWeapon().GetComponent<Weapon>();
+        weaponAmmoLabel.text = string.Format("{0}/{1}", primaryWeapon.getBulletsInMagazine(), primaryWeapon.GetMagazineSize());
+    }
+
+    private void updateNumberOfCoinsLabel()
+    {
+        numberOfCoinsLabel.text = player.GetCoins().ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
         updateHealthBar();
+        updatePerksList();
+        updateWeaponUI();
         updateNumberOfCoinsLabel();
-        updatePerks();
     }
 }

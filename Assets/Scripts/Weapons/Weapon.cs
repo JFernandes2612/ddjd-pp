@@ -27,48 +27,58 @@ public abstract class Weapon : MonoBehaviour
     private bool canShoot = true;
     private bool reloading = false;
 
-    private int bulletsInClip;
+    private int bulletsInMagazine;
 
     // setters for powerups
-    public void SetDamage(int newDamage){
+    public void SetDamage(int newDamage)
+    {
         damage = newDamage;
     }
 
-    public void SetReloadSpeed(int newReloadSpeed){
+    public void SetReloadSpeed(int newReloadSpeed)
+    {
         damage = newReloadSpeed;
     }
 
-    public void SetFireRate(int newFireRate){
+    public void SetFireRate(int newFireRate)
+    {
         damage = newFireRate;
     }
 
     // getters
-    public int GetDamage(){
+    public int GetDamage()
+    {
         return damage;
     }
 
-    public int GetMagazineSize(){
+    public int GetMagazineSize()
+    {
         return magazineSize;
     }
 
-    public float GetReloadSpeed(){
+    public float GetReloadSpeed()
+    {
         return reloadSpeed;
     }
 
-    public float GetBulletSpeed(){
+    public float GetBulletSpeed()
+    {
         return bulletSpeed;
     }
 
-    public float GetRange(){
+    public float GetRange()
+    {
         return range;
     }
 
-    public float GetFireRate(){
+    public float GetFireRate()
+    {
         return fireRate;
     }
 
-    public int getBulletsInClip() {
-        return bulletsInClip;
+    public int getBulletsInMagazine()
+    {
+        return bulletsInMagazine;
     }
 
     // Start is called before the first frame update
@@ -83,28 +93,34 @@ public abstract class Weapon : MonoBehaviour
 
     // checks if shooting is possible, and creates the projectiles if it is
     // called from other scripts (player, tester, etc...)
-    public void Shoot(){
-        if(canShoot && !reloading){
+    public void Shoot()
+    {
+        if (canShoot && !reloading)
+        {
             StartCoroutine(ShotCooldown());
-            bulletsInClip--;
+            bulletsInMagazine--;
             InstantiateProjectiles();
-            if(bulletsInClip == 0){
+            if (bulletsInMagazine == 0)
+            {
                 StartCoroutine(Reload());
             }
         }
     }
 
-    private void RefillClip(){
-        bulletsInClip = magazineSize;
+    private void RefillClip()
+    {
+        bulletsInMagazine = magazineSize;
     }
 
-    IEnumerator ShotCooldown(){
+    IEnumerator ShotCooldown()
+    {
         canShoot = false;
-        yield return new WaitForSeconds(1/fireRate);
+        yield return new WaitForSeconds(1 / fireRate);
         canShoot = true;
     }
 
-    IEnumerator Reload(){
+    IEnumerator Reload()
+    {
         reloading = true;
         yield return new WaitForSeconds(reloadSpeed);
         RefillClip();

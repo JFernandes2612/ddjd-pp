@@ -17,6 +17,10 @@ public abstract class Projectile : MonoBehaviour
         range = newRange;
     }
 
+    public void SetDamage(int newDamage) {
+        damage = newDamage;
+    }
+
     // Fetches reference to the projectiles Empty GameObject on the first frame and sets it to this Projectile instance's transform's parent
     void Start()
     {
