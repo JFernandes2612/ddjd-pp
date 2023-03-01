@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DoorsController : MonoBehaviour
@@ -12,6 +13,12 @@ public class DoorsController : MonoBehaviour
 
     [SerializeField]
     private GameObject[] rooms;
+
+    [SerializeField]
+    private float[] roomDropRate;
+
+    [SerializeField]
+    private int doorCost;
 
 
     // Distance from mid one door to dead center
@@ -30,6 +37,9 @@ public class DoorsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Assert(rooms.Length == roomDropRate.Length);
+        Debug.Assert(roomDropRate.Sum() == 1.0f);
+
         player = GameObject.FindGameObjectWithTag("Player");
 
         door1 = transform.GetChild(1);
@@ -51,19 +61,26 @@ public class DoorsController : MonoBehaviour
             {
                 if (Input.GetKeyDown("e"))
                 {
-                    //! if have money check before next
+                    if (player.GetComponent<Player>().haveEnoughCoins(doorCost)) {
+                        player.GetComponent<Player>().RemoveCoins(doorCost);
+                        open = true;
+                        OpenDoors();
 
-                    open = true;
-                    OpenDoors();
-
-                    //! Choose random Spawn Rate of Rooms
-                    Instantiate(rooms[0], roomSpawnPoint.position + -roomSpawnPoint.right * corridorLength, Quaternion.Euler(0, roomSpawnPoint.localEulerAngles.y + 135f, 0)).transform.parent = roomSpawnPoint;
+                        float currentDropRate = 0.0f;
+                        float drop = Random.Range(0.0f, 1.0f);
+                        for (int i = 0; i < rooms.Length; i++) {
+                            currentDropRate += roomDropRate[i];
+                            if (drop < currentDropRate) {
+                                Instantiate(rooms[i], roomSpawnPoint.position + -roomSpawnPoint.right * corridorLength, Quaternion.Euler(0, roomSpawnPoint.localEulerAngles.y + 135f, 0)).transform.parent = roomSpawnPoint;
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }
 
         // Clamp Door Rotation Values
-        //! SILL HAVE TO FIX THIS SHIT KINDA BROKEY
         door1.localEulerAngles = Vector3.up * Mathf.Clamp(door1.localEulerAngles.y, 0f, 85f);
         door2.localEulerAngles = Vector3.up * Mathf.Clamp(door2.localEulerAngles.y, 95f, 180f);
     }
@@ -72,10 +89,10 @@ public class DoorsController : MonoBehaviour
     {
         float toque = 850.0f;
         door1Rb.constraints &= ~RigidbodyConstraints.FreezeRotationY;
-        door1Rb.AddTorque(Vector3.up * toque);
+        door1Rb.AddTorque(Vector3.up * toque * door1Rb.mass);
 
 
         door2Rb.constraints &= ~RigidbodyConstraints.FreezeRotationY;
-        door2Rb.AddTorque(Vector3.down * toque);
+        door2Rb.AddTorque(Vector3.down * toque * door1Rb.mass);
     }
 }
