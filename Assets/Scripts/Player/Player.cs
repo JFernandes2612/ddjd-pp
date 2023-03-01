@@ -53,18 +53,7 @@ public class Player : Entity
         }
 
         if (Input.GetKeyDown("q")) {
-            if (secondaryWeapon) {
-                GameObject temp = secondaryWeapon;
-
-                secondaryWeapon = primaryWeapon;
-                secondaryWeapon.GetComponent<MeshRenderer>().enabled = false;
-                primaryWeapon = temp;
-
-                if (!primaryWeapon.activeInHierarchy) {
-                    primaryWeapon = SpawnWeapon(temp);
-                }
-                primaryWeapon.GetComponent<MeshRenderer>().enabled = true;
-            }
+            swapWeapon();
         }
     }
 
@@ -171,5 +160,20 @@ public class Player : Entity
 
     public GameObject getPrimaryWeapon() {
         return primaryWeapon;
+    }
+
+    private void swapWeapon() {
+        if (secondaryWeapon) {
+            GameObject temp = secondaryWeapon;
+
+            secondaryWeapon = primaryWeapon;
+            secondaryWeapon.GetComponent<MeshRenderer>().enabled = false;
+            primaryWeapon = temp;
+
+            if (!primaryWeapon.activeInHierarchy) {
+                primaryWeapon = SpawnWeapon(temp);
+            }
+            primaryWeapon.GetComponent<MeshRenderer>().enabled = true;
+        }
     }
 }
