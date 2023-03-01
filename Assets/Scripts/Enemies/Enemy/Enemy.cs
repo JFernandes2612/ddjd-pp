@@ -100,12 +100,22 @@ public abstract class Enemy : Entity
     }
 
     protected override void Die() {
+        dropCollectables();
+
+        dropPerks();
+
+        enemyController.RemoveEnemy(gameObject);
+    }
+
+    private void dropCollectables() {
         for (int i = 0; i < collectables.Length; i++) {
             int quantity = (int)collectablesDropChances[i] + (Random.Range(0.0f, 1.0f) < collectablesDropChances[i] - (int)collectablesDropChances[i] ? 1 : 0);
             for (int c = 0; c < quantity; c++)
                 Instantiate(collectables[i], transform.position, Quaternion.identity);
         }
+    }
 
+    private void dropPerks() {
         float currentPerkDropChance = 0.0f;
         float drop = Random.Range(0.0f, 1.0f);
         for (int i = 0; i < perks.Length; i++) {
@@ -116,8 +126,6 @@ public abstract class Enemy : Entity
                 break;
             }
         }
-
-        enemyController.RemoveEnemy(gameObject);
     }
 
     // Handles collisions between this and other object instances
