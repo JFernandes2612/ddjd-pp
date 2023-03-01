@@ -54,6 +54,10 @@ public class GameController : MonoBehaviour
         return pause;
     }
 
+    public int getPoints() {
+        return enemyController.getPoints();
+    }
+
     IEnumerator betweenRound() {
         enemyController.StopSpawning();
         pause = true;

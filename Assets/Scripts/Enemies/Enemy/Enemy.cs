@@ -69,6 +69,10 @@ public abstract class Enemy : Entity
         healthBar.value = health;
     }
 
+    public int getPoints() {
+        return points;
+    }
+
     // Input gathering
     void Update()
     {
