@@ -5,9 +5,11 @@ using UnityEngine;
 public class Player : Entity
 {
     // Weapon related variables
-    [SerializeField] // for debug
-    List<GameObject> weapons;
-    public int equippedWeapon = 0;
+    [SerializeField]
+    private GameObject primaryWeapon;
+
+    [SerializeField]
+    private GameObject secondaryWeapon = null;
 
     // Coins
     private int coins = 0;
@@ -18,12 +20,8 @@ public class Player : Entity
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        foreach (Transform child in transform){
-            if(child.tag == "Weapon"){
-                weapons.Add(child.gameObject);
-                break;
-            }
-        }
+        primaryWeapon = Instantiate(primaryWeapon, transform.position + primaryWeapon.transform.localScale.z * Vector3.forward / 2 + transform.localScale.z * Vector3.forward / 2, Quaternion.identity);
+        primaryWeapon.transform.parent = transform;
     }
 
     // Update is called once per frame
@@ -41,9 +39,7 @@ public class Player : Entity
 
         if (Input.GetMouseButtonDown(0))
         {
-            if(equippedWeapon < weapons.Count){
-                weapons[equippedWeapon].GetComponent<Weapon>().Shoot();
-            }
+            primaryWeapon.GetComponent<Weapon>().Shoot();
         }
     }
 
@@ -95,24 +91,10 @@ public class Player : Entity
         {
             Heal(1);
         }
-        else if (collision.gameObject.CompareTag("Perk"))
-        {
-            Perk perk = collision.gameObject.GetComponent<Perk>();
-            PerkType perkType = perk.getType();
-            float quantity = perk.getQuantity();
-
-            switch (perkType)
-            {
-                case PerkType.MaxHealth:
-                    AddMaxHealth((int)quantity);
-                    break;
-                default:
-                    break;
-            }
-        }
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other)
+    {
         if (other.gameObject.transform.parent.gameObject.CompareTag("Perk"))
         {
             Perk perk = other.gameObject.transform.parent.gameObject.GetComponent<Perk>();
@@ -128,7 +110,8 @@ public class Player : Entity
                     break;
             }
 
-            if (!perks.ContainsKey(perkType)) {
+            if (!perks.ContainsKey(perkType))
+            {
                 perks[perkType] = 0;
             }
 
@@ -141,7 +124,8 @@ public class Player : Entity
         return coins;
     }
 
-    public bool haveEnoughCoins(int value) {
+    public bool haveEnoughCoins(int value)
+    {
         return coins >= value;
     }
 
@@ -155,7 +139,8 @@ public class Player : Entity
         coins -= value;
     }
 
-    public Dictionary<PerkType, int> getPerks() {
+    public Dictionary<PerkType, int> getPerks()
+    {
         return perks;
     }
 }

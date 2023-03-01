@@ -599,11 +599,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115809950}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &188416824 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2449205437877212355, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-  m_PrefabInstance: {fileID: 574570992}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &191493413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1033,63 +1028,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8449618912294004643, guid: debe6f32c62cfc247b268741604a862d, type: 3}
   m_PrefabInstance: {fileID: 572943713}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &574570992
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1311216164}
-    m_Modifications:
-    - target: {fileID: 2449205437877212355, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449205437877212355, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449205437877212355, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449205437877212355, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449205437877212355, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449205437877212355, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449205437877212355, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449205437877212355, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449205437877212355, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449205437877212355, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449205437877212355, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2449205437877212366, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-      propertyPath: m_Name
-      value: Pistol
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3471c8fa915fe19f1862987988722552, type: 3}
 --- !u!1 &647130784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,7 +1872,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1311216164}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &865577797
 SphereCollider:
@@ -2342,7 +2280,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1311216164}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1072956341
 Light:
@@ -2611,7 +2549,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 188416824}
   - {fileID: 865577796}
   - {fileID: 1072956340}
   m_Father: {fileID: 0}
@@ -2632,7 +2569,8 @@ MonoBehaviour:
   moveSpeed: 15
   maxHealth: 100
   health: 50
-  weapons: []
+  primaryWeapon: {fileID: 7662981063384385549, guid: 3471c8fa915fe19f1862987988722552, type: 3}
+  secondaryWeapon: {fileID: 0}
 --- !u!1 &1338674642
 GameObject:
   m_ObjectHideFlags: 0

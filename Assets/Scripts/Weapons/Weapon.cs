@@ -24,14 +24,10 @@ public abstract class Weapon : MonoBehaviour
     private float reloadSpeed;
     [SerializeField]
     private float fireRate;
-    bool canShoot = true;
-    bool reloading = false;
+    private bool canShoot = true;
+    private bool reloading = false;
 
-    [SerializeField] //for debug
     private int bulletsInClip;
-
-    // defines specific weapon bullet pattern spread
-    protected abstract void InstantiateProjectiles();
 
     // setters for powerups
     public void SetDamage(int newDamage){
@@ -71,12 +67,19 @@ public abstract class Weapon : MonoBehaviour
         return fireRate;
     }
 
+    public int getBulletsInClip() {
+        return bulletsInClip;
+    }
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        shootPoint = transform.GetChild(0).GetComponent<Transform>();
+        shootPoint = transform.GetChild(0);
         RefillClip();
     }
+
+    // defines specific weapon bullet pattern spread
+    protected abstract void InstantiateProjectiles();
 
     // checks if shooting is possible, and creates the projectiles if it is
     // called from other scripts (player, tester, etc...)
@@ -97,14 +100,14 @@ public abstract class Weapon : MonoBehaviour
 
     IEnumerator ShotCooldown(){
         canShoot = false;
-        yield return new WaitForSeconds(fireRate);
+        yield return new WaitForSeconds(1/fireRate);
         canShoot = true;
     }
 
     IEnumerator Reload(){
         reloading = true;
-        RefillClip();
         yield return new WaitForSeconds(reloadSpeed);
+        RefillClip();
         reloading = false;
     }
 }
