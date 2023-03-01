@@ -27,6 +27,7 @@ public abstract class Weapon : MonoBehaviour
     bool canShoot = true;
     bool reloading = false;
 
+    [SerializeField] //for debug
     private int bulletsInClip;
 
     // defines specific weapon bullet pattern spread
@@ -74,15 +75,24 @@ public abstract class Weapon : MonoBehaviour
     void Start()
     {
         shootPoint = transform.GetChild(0).GetComponent<Transform>();
+        RefillClip();
     }
 
     // checks if shooting is possible, and creates the projectiles if it is
     // called from other scripts (player, tester, etc...)
     public void Shoot(){
-        if(canShoot){
+        if(canShoot && !reloading){
             StartCoroutine(ShotCooldown());
+            bulletsInClip--;
             InstantiateProjectiles();
+            if(bulletsInClip == 0){
+                StartCoroutine(Reload());
+            }
         }
+    }
+
+    private void RefillClip(){
+        bulletsInClip = magazineSize;
     }
 
     IEnumerator ShotCooldown(){
@@ -93,6 +103,7 @@ public abstract class Weapon : MonoBehaviour
 
     IEnumerator Reload(){
         reloading = true;
+        RefillClip();
         yield return new WaitForSeconds(reloadSpeed);
         reloading = false;
     }
