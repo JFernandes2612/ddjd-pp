@@ -62,7 +62,7 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-        private void updateWeaponUI()
+    private void updateWeaponUI()
     {
         Weapon primaryWeapon = player.getPrimaryWeapon().GetComponent<Weapon>();
         weaponAmmoLabel.text = string.Format("{0}/{1}", primaryWeapon.getBulletsInMagazine(), primaryWeapon.GetMagazineSize());

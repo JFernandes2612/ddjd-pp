@@ -176,4 +176,9 @@ public class Player : Entity
             primaryWeapon.GetComponent<MeshRenderer>().enabled = true;
         }
     }
+
+    public void getNewWeapon(GameObject weapon) {
+        Destroy(primaryWeapon);
+        primaryWeapon = SpawnWeapon(weapon);
+    }
 }
