@@ -11,6 +11,7 @@ TagManager:
   - CollectablesEmpty
   - Coin
   - HealthOrb
+  - Weapon
   layers:
   - Default
   - TransparentFX
