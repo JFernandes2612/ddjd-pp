@@ -6,24 +6,21 @@ public abstract class Projectile : MonoBehaviour
 {
     // Bound checking-related fields
     [SerializeField]
-    private float xBound;
+    private float range;
     [SerializeField]
-    private float yBound;
-    [SerializeField]
-    private float zBound;
+    private Vector3 initPosition;
 
     [SerializeField]
     protected int damage;
 
-    public void SetRange(float range){
-        xBound = range;
-        yBound = range;
-        zBound = range;
+    public void SetRange(float newRange){
+        range = newRange;
     }
 
     // Fetches reference to the projectiles Empty GameObject on the first frame and sets it to this Projectile instance's transform's parent
     void Start()
     {
+        initPosition = transform.position;
         transform.parent = GameObject.FindGameObjectWithTag("ProjectileEmpty").transform;
     }
 
@@ -39,8 +36,9 @@ public abstract class Projectile : MonoBehaviour
     // Verifies if the projectile is within the expected bounds. Destroys it if it leaves them
     void CheckBounds()
     {
-        bool inXBound = transform.position.x < xBound && transform.position.x > -xBound;
-        bool inZBound = transform.position.z < zBound && transform.position.z > -zBound;
+        bool inXBound = transform.position.x < (initPosition.x + range) && transform.position.x > (initPosition.x - range);
+        bool inYBound = transform.position.y < (initPosition.y + range) && transform.position.y > (initPosition.y - range);
+        bool inZBound = transform.position.z < (initPosition.z + range) && transform.position.z > (initPosition.z - range);
         if (!(inXBound && inZBound))
         {
             DestroyProjectile();
