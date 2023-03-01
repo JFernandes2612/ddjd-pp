@@ -9,7 +9,8 @@ public class Player : Entity
     private GameObject primaryWeapon;
 
     [SerializeField]
-    private GameObject secondaryWeapon = null;
+    #nullable restore
+    private GameObject secondaryWeapon;
 
     // Coins
     private int coins = 0;
@@ -20,8 +21,13 @@ public class Player : Entity
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        primaryWeapon = Instantiate(primaryWeapon, transform.position + primaryWeapon.transform.localScale.z * Vector3.forward / 2 + transform.localScale.z * Vector3.forward / 2, Quaternion.identity);
-        primaryWeapon.transform.parent = transform;
+        primaryWeapon = SpawnWeapon(primaryWeapon);
+    }
+
+    private GameObject SpawnWeapon(GameObject weapon) {
+        GameObject weaponSpawned = Instantiate(weapon, transform.position + weapon.transform.localScale.z * transform.forward / 2 + transform.localScale.z * transform.forward / 2, transform.localRotation);
+        weaponSpawned.transform.parent = transform;
+        return weaponSpawned;
     }
 
     // Update is called once per frame
@@ -40,6 +46,25 @@ public class Player : Entity
         if (Input.GetMouseButton(0))
         {
             primaryWeapon.GetComponent<Weapon>().Shoot();
+        }
+
+        if (Input.GetKeyDown("r")) {
+            primaryWeapon.GetComponent<Weapon>().StartCoroutine("Reload");
+        }
+
+        if (Input.GetKeyDown("q")) {
+            if (secondaryWeapon) {
+                GameObject temp = secondaryWeapon;
+
+                secondaryWeapon = primaryWeapon;
+                secondaryWeapon.GetComponent<MeshRenderer>().enabled = false;
+                primaryWeapon = temp;
+
+                if (!primaryWeapon.activeInHierarchy) {
+                    primaryWeapon = SpawnWeapon(temp);
+                }
+                primaryWeapon.GetComponent<MeshRenderer>().enabled = true;
+            }
         }
     }
 
