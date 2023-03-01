@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    // Scene Object References
-    [SerializeField]
-    private GameObject shootPoint;
-    [SerializeField]
-    private GameObject bullet;
-
-    // Shooting-related fields
-    [SerializeField]
-    private float bulletSpeed = 100.0f;
+    // Weapon related variables
+    [SerializeField] // for debug
+    List<GameObject> weapons;
 
     // Coins
     private int coins = 0;
@@ -23,6 +17,12 @@ public class Player : Entity
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        foreach (Transform child in transform){
+            if(child.tag == "Weapon"){
+                weapons.Add(child.gameObject);
+                break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -40,8 +40,7 @@ public class Player : Entity
 
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject bulletObject = Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(bullet.transform.rotation.eulerAngles + transform.rotation.eulerAngles));
-            bulletObject.GetComponent<Rigidbody>().AddRelativeForce(-bulletObject.transform.forward * bulletSpeed);
+            weapons[0].GetComponent<Weapon>().Shoot();
         }
     }
 
