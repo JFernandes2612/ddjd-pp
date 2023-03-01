@@ -29,6 +29,7 @@ public abstract class Enemy : Entity
     // Fetches reference to the player model on the first frame
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         Debug.Assert(collectables.Length == collectablesDropChances.Length);
         player = GameObject.FindGameObjectWithTag("Player");
         CreateEnemyUI();

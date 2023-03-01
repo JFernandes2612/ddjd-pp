@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour
 {
     // Movement-related fields
+    protected Rigidbody rb;
     protected Vector3 moveDirection;
     [SerializeField]
     protected float moveSpeed;
@@ -21,8 +22,7 @@ public abstract class Entity : MonoBehaviour
     // Moves the object instance
     protected void Move()
     {
-        // TODO: abstract this and Player's Move method
-        transform.position = transform.position + (moveDirection * moveSpeed * Time.deltaTime);
+        rb.velocity = moveDirection.normalized * moveSpeed;
     }
 
     public void Damage(int value) {

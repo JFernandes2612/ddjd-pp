@@ -19,7 +19,7 @@ public class Player : Entity
 
     void Start()
     {
-        moveSpeed = 15f;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
