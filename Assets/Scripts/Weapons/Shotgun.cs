@@ -8,7 +8,6 @@ public class Shotgun : Weapon
     private int pelletNumber = 3;
 
     protected override void InstantiateProjectiles(){
-        Debug.Log("once");
         for(int pellet = 0; pellet < pelletNumber; pellet++){
             float xRot = Random.Range(-45, 45);
             float yRot = Random.Range(-45, 45);

@@ -25,6 +25,6 @@ public class InteractableUI : MonoBehaviour
     }
 
     private bool PlayerInRadius(){
-        return Mathf.Pow((playerTransform.position.x - transform.position.x), 2) + Mathf.Pow((playerTransform.position.z - transform.position.z), 2) <= Mathf.Pow(radius, 2);
+        return Vector3.Distance(playerTransform.position, transform.position) <= radius;
     }
 }
