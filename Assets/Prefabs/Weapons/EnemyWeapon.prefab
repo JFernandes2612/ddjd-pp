@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7662981063384385549}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.29289, y: 0.18220937, z: 0.6146248}
   m_ConstrainProportionsScale: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1b422b05fb8a8394da8e079040f7c749, type: 2}
+  - {fileID: 2100000, guid: 4db1b0d0c512122e9ac33be1c853d64b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,11 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1462741489704342317, guid: 034328aca35f0c84b9ea38872dedad55, type: 3}
-  damage: 4
-  bulletSpeed: 20
+  damage: 10
+  bulletSpeed: 5
   range: 99999
   magazineSize: 16
-  reloadSpeed: 3
+  reloadSpeed: 0
   fireRate: 2
 --- !u!1 &7662981064111359374
 GameObject:
