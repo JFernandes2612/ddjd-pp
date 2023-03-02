@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac02a4c30e538ea5b3f1f57ee567ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMoveSpeed: 0
+  baseMoveSpeed: 4
   baseMaxHealth: 10
   enemyCanvasPrefab: {fileID: 3153150588936743938, guid: e7d69bf7d554d2ada9c9b57494fc6d72, type: 3}
   damage: 5
