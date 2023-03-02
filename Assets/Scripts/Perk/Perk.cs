@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum PerkType
 {
-    MaxHealth
+    MaxHealth,
+    MoveSpeed
 }
 
 public class Perk : MonoBehaviour

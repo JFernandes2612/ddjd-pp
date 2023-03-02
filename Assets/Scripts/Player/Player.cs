@@ -18,8 +18,9 @@ public class Player : Entity
     //Perks
     private Dictionary<PerkType, int> perks = new Dictionary<PerkType, int>();
 
-    void Start()
+    protected void Start()
     {
+        setBaseStats();
         rb = GetComponent<Rigidbody>();
         primaryWeapon = SpawnWeapon(primaryWeapon);
     }
@@ -118,7 +119,10 @@ public class Player : Entity
             switch (perkType)
             {
                 case PerkType.MaxHealth:
-                    AddMaxHealth((int)quantity);
+                    AddMaxHealth((int)(quantity * baseMaxHealth));
+                    break;
+                case PerkType.MoveSpeed:
+                    AddMovementSpeed(quantity * baseMoveSpeed);
                     break;
                 default:
                     break;
