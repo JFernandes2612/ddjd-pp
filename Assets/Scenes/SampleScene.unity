@@ -3001,9 +3001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598eca4b7e9c876469c7e5607e1554eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
-  maxHealth: 100
-  health: 50
+  baseMoveSpeed: 15
+  baseMaxHealth: 100
   primaryWeapon: {fileID: 7662981063384385549, guid: 3471c8fa915fe19f1862987988722552, type: 3}
   secondaryWeapon: {fileID: 0}
 --- !u!1 &1338674642

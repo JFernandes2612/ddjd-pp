@@ -8,6 +8,7 @@ public abstract class Entity : MonoBehaviour
     protected Rigidbody rb;
     protected Vector3 moveDirection;
     [SerializeField]
+    protected float baseMoveSpeed;
     protected float moveSpeed;
 
     protected abstract Vector3 GetMoveDirection();
@@ -15,9 +16,15 @@ public abstract class Entity : MonoBehaviour
 
     // Health-related fields
     [SerializeField]
-    protected int maxHealth = 100;
-    [SerializeField]
+    protected int baseMaxHealth = 100;
+    protected int maxHealth;
     protected int health = 50;
+
+    protected void setBaseStats() {
+        moveSpeed = baseMoveSpeed;
+        maxHealth = baseMaxHealth;
+        health = maxHealth;
+    }
 
     // Moves the object instance
     protected void Move()
@@ -43,5 +50,9 @@ public abstract class Entity : MonoBehaviour
 
     public int GetCurrentHealth() {
         return health;
+    }
+
+    public void AddMovementSpeed(float value) {
+        moveSpeed += value;
     }
 }

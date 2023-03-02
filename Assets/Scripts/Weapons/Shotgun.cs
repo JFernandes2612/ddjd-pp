@@ -5,8 +5,9 @@ using UnityEngine;
 public class Shotgun : Weapon
 {
     [SerializeField]
-    private int pelletNumber = 3;
+    private int pelletNumber = 10;
 
+    [SerializeField]
     private float maxRadius = 1.0f;
 
     protected override void InstantiateProjectiles(){

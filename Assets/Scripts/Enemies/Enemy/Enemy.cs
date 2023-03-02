@@ -40,6 +40,7 @@ public abstract class Enemy : Entity
     // Fetches reference to the player model on the first frame
     void Start()
     {
+        setBaseStats();
         // Assert same sizes
         Debug.Assert(collectables.Length == collectablesDropChances.Length);
         Debug.Assert(perks.Length == perksDropChances.Length);

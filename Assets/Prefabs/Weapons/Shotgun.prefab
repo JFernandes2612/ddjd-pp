@@ -149,4 +149,4 @@ MonoBehaviour:
   magazineSize: 4
   reloadSpeed: 5
   fireRate: 3
-  pelletNumber: 4
+  pelletNumber: 5
