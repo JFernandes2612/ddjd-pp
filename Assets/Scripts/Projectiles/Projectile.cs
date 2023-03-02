@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     // Bound checking-related fields
-    [SerializeField]
     private float range;
-    [SerializeField]
     private Vector3 initPosition;
 
-    [SerializeField]
     protected int damage;
 
     public void SetRange(float newRange){
@@ -42,12 +39,12 @@ public abstract class Projectile : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, initPosition) >= range)
         {
-            DestroyProjectile();
+            Destroy(gameObject);
         }
     }
 
     // Destroys this Projectile
-    protected void DestroyProjectile()
+    void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
     }
