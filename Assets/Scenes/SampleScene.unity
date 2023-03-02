@@ -2937,7 +2937,7 @@ MonoBehaviour:
   moveSpeed: 15
   maxHealth: 100
   health: 50
-  primaryWeapon: {fileID: 7662981063384385549, guid: 3471c8fa915fe19f1862987988722552, type: 3}
+  primaryWeapon: {fileID: 5226285903710071878, guid: ec866a64f2bda8d629eb89299c241997, type: 3}
   secondaryWeapon: {fileID: 0}
 --- !u!1 &1338674642
 GameObject:
