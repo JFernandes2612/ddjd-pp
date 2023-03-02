@@ -28,13 +28,13 @@ TagManager:
   - Doors
   - MainFloor
   - AuxFloor
-  - Projectiles
+  - PlayerProjectiles
   - Player
   - Enemies
   - Collectible
   - Perk
   - WeaponDrop
-  - 
+  - EnemyProjectiles
   - 
   - 
   - 

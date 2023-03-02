@@ -88,7 +88,7 @@ public abstract class Enemy : Entity
     }
 
     // Input gathering
-    void Update()
+    protected virtual void Update()
     {
         moveDirection = GetMoveDirection();
     }
