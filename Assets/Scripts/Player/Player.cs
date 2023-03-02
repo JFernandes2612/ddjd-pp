@@ -175,9 +175,16 @@ public class Player : Entity
             }
             primaryWeapon.GetComponent<MeshRenderer>().enabled = true;
         }
+        else{
+            // TODO: this was glued with duct tape, fix it
+            secondaryWeapon = primaryWeapon;
+            secondaryWeapon.GetComponent<MeshRenderer>().enabled = false;
+            primaryWeapon = null;
+        }
     }
 
     public void getNewWeapon(GameObject weapon) {
+        swapWeapon();
         Destroy(primaryWeapon);
         primaryWeapon = SpawnWeapon(weapon);
     }
