@@ -146,7 +146,7 @@ MonoBehaviour:
   - 0.2
   - 0.3
   weaponObject: {fileID: 6624999180834626147}
-  hoverDistance: 10
+  hoverDistance: 5
   graceRange: 1
 --- !u!1001 &3578348541748482670
 PrefabInstance:
