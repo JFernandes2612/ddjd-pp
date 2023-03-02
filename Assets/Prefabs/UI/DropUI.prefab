@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1434472259703917693}
   - component: {fileID: -7552094351531519033}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DropUI
   m_TagString: popup ui
   m_Icon: {fileID: 0}

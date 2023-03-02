@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5226285902177698883}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5226285903710071875}
   - component: {fileID: 5226285903710071872}
   - component: {fileID: 5226285903710071873}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Shotgun
   m_TagString: Weapon
   m_Icon: {fileID: 0}
