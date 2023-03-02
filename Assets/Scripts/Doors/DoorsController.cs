@@ -19,6 +19,8 @@ public class DoorsController : MonoBehaviour
 
     [SerializeField]
     private int doorCost;
+    [SerializeField]
+    private GameObject doorcanvas;
 
 
     // Distance from mid one door to dead center
@@ -87,6 +89,7 @@ public class DoorsController : MonoBehaviour
 
     void OpenDoors()
     {
+        doorcanvas.SetActive(false);
         float toque = 850.0f;
         door1Rb.constraints &= ~RigidbodyConstraints.FreezeRotationY;
         door1Rb.AddTorque(Vector3.up * toque * door1Rb.mass);
