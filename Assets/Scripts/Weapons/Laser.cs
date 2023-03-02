@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : Weapon
+public class Laser : Weapon
 {
     protected override void InstantiateProjectiles(){
         GameObject spawnedProjectile = Instantiate(bulletPrefab, shootPoint.position, shootPoint.transform.rotation * bulletPrefab.transform.rotation);
