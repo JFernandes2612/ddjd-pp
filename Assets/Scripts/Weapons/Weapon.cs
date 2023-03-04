@@ -29,6 +29,13 @@ public abstract class Weapon : MonoBehaviour
 
     private int bulletsInMagazine;
 
+
+    [SerializeField]
+    private Texture2D fireCursor;
+
+    [SerializeField]
+    private Texture2D reloadCursor;
+
     // setters for powerups
     public void SetDamage(int newDamage)
     {
@@ -122,8 +129,10 @@ public abstract class Weapon : MonoBehaviour
     IEnumerator Reload()
     {
         reloading = true;
+        Cursor.SetCursor(reloadCursor, Vector2.zero, CursorMode.Auto);
         yield return new WaitForSeconds(reloadSpeed);
         RefillClip();
         reloading = false;
+        Cursor.SetCursor(fireCursor, Vector2.zero, CursorMode.Auto);
     }
 }
