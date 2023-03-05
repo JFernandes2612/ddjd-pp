@@ -36,6 +36,8 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]
     private Texture2D reloadCursor;
 
+    private Coroutine reloadingCoroutine;
+
     // setters for powerups
     public void SetDamage(int newDamage)
     {
@@ -98,6 +100,17 @@ public abstract class Weapon : MonoBehaviour
     // defines specific weapon bullet pattern spread
     protected abstract void InstantiateProjectiles();
 
+    public void CheckMagazine() {
+        if (bulletsInMagazine <= 0)
+        {
+            ReloadF();
+        }
+    }
+
+    public void ReloadF() {
+        reloadingCoroutine = StartCoroutine(Reload());
+    }
+
     // checks if shooting is possible, and creates the projectiles if it is
     // called from other scripts (player, tester, etc...)
     public void Shoot()
@@ -107,14 +120,11 @@ public abstract class Weapon : MonoBehaviour
             StartCoroutine(ShotCooldown());
             bulletsInMagazine--;
             InstantiateProjectiles();
-            if (bulletsInMagazine == 0)
-            {
-                StartCoroutine(Reload());
-            }
+            CheckMagazine();
         }
     }
 
-    private void RefillClip()
+    public void RefillClip()
     {
         bulletsInMagazine = magazineSize;
     }
@@ -134,5 +144,13 @@ public abstract class Weapon : MonoBehaviour
         RefillClip();
         reloading = false;
         Cursor.SetCursor(fireCursor, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void StopReloading() {
+        if (reloading) {
+            StopCoroutine(reloadingCoroutine);
+            Cursor.SetCursor(fireCursor, Vector2.zero, CursorMode.Auto);
+            reloading = false;
+        }
     }
 }

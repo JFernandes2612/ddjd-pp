@@ -13,7 +13,7 @@ public class Player : Entity
     private GameObject secondaryWeapon;
 
     // Coins
-    private int coins = 0;
+    private int coins = 1000;
 
     //Perks
     private Dictionary<PerkType, int> perks = new Dictionary<PerkType, int>();
@@ -50,7 +50,7 @@ public class Player : Entity
         }
 
         if (Input.GetKeyDown("r")) {
-            primaryWeapon.GetComponent<Weapon>().StartCoroutine("Reload");
+            primaryWeapon.GetComponent<Weapon>().ReloadF();
         }
 
         if (Input.GetKeyDown("q")) {
@@ -168,6 +168,7 @@ public class Player : Entity
 
     private void swapWeapon() {
         if (secondaryWeapon) {
+            primaryWeapon.GetComponent<Weapon>().StopReloading();
             GameObject temp = secondaryWeapon;
 
             secondaryWeapon = primaryWeapon;
@@ -176,8 +177,10 @@ public class Player : Entity
 
             if (!primaryWeapon.activeInHierarchy) {
                 primaryWeapon = SpawnWeapon(temp);
+                primaryWeapon.GetComponent<Weapon>().RefillClip();
             }
             primaryWeapon.GetComponent<MeshRenderer>().enabled = true;
+            primaryWeapon.GetComponent<Weapon>().CheckMagazine();
         }
     }
 

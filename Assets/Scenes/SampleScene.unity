@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05892bcaa3720ca4caf2a158f03891a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 3
+  spawnRate: 10
   xBound: 15
   ySpawnPos: 0
   zBound: 15
@@ -2938,9 +2938,7 @@ MonoBehaviour:
   baseMoveSpeed: 15
   baseMaxHealth: 100
   primaryWeapon: {fileID: 7662981063384385549, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-  secondaryWeapon: {fileID: 0}
-  fireCursor: {fileID: 2800000, guid: 7ce832ef49566014ebf643770dbb4e3a, type: 3}
-  reloadCursor: {fileID: 2800000, guid: 9765f7658aadef4448580d879b54748b, type: 3}
+  secondaryWeapon: {fileID: 7662981063384385549, guid: 6c95bff650ccdc34ea91338602b38491, type: 3}
 --- !u!1 &1338674642
 GameObject:
   m_ObjectHideFlags: 0
