@@ -2938,7 +2938,7 @@ MonoBehaviour:
   baseMoveSpeed: 15
   baseMaxHealth: 100
   primaryWeapon: {fileID: 7662981063384385549, guid: 3471c8fa915fe19f1862987988722552, type: 3}
-  secondaryWeapon: {fileID: 7662981063384385549, guid: 6c95bff650ccdc34ea91338602b38491, type: 3}
+  secondaryWeapon: {fileID: 0}
 --- !u!1 &1338674642
 GameObject:
   m_ObjectHideFlags: 0

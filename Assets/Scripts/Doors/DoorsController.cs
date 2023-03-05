@@ -73,7 +73,7 @@ public class DoorsController : MonoBehaviour
                         for (int i = 0; i < rooms.Length; i++) {
                             currentDropRate += roomDropRate[i];
                             if (drop < currentDropRate) {
-                                Instantiate(rooms[i], roomSpawnPoint.position + -roomSpawnPoint.right * corridorLength, Quaternion.Euler(0, roomSpawnPoint.localEulerAngles.y + 135f, 0)).transform.parent = roomSpawnPoint;
+                                Instantiate(rooms[i], roomSpawnPoint.position + -roomSpawnPoint.right * rooms[i].transform.GetChild(0).localScale.z * 5.0f, Quaternion.Euler(0, roomSpawnPoint.localEulerAngles.y + 135f, 0)).transform.parent = roomSpawnPoint;
                                 break;
                             }
                         }
