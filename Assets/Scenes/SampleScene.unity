@@ -1226,7 +1226,11 @@ PrefabInstance:
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1311216158}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: doorCanvas
+      value: 
+      objectReference: {fileID: 38538084}
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: doorcanvas
       value: 
@@ -1593,7 +1597,11 @@ PrefabInstance:
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1311216158}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: doorCanvas
+      value: 
+      objectReference: {fileID: 729556192}
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: doorcanvas
       value: 
@@ -1873,6 +1881,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 836629315}
+  - component: {fileID: 836629316}
   m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
@@ -1901,6 +1910,18 @@ Transform:
   m_Father: {fileID: 2124721651}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &836629316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836629314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e27c4fa281e7f48b489c6ae6694c93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &837447006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,7 +2228,11 @@ PrefabInstance:
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1311216158}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: doorCanvas
+      value: 
+      objectReference: {fileID: 963018185}
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: doorcanvas
       value: 
@@ -3307,7 +3332,11 @@ PrefabInstance:
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1311216158}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: doorCanvas
+      value: 
+      objectReference: {fileID: 571722058}
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: doorcanvas
       value: 
@@ -3448,7 +3477,11 @@ PrefabInstance:
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1311216158}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: doorCanvas
+      value: 
+      objectReference: {fileID: 411535438}
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: doorcanvas
       value: 
@@ -4153,7 +4186,11 @@ PrefabInstance:
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1311216158}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: doorCanvas
+      value: 
+      objectReference: {fileID: 1206350032}
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: doorcanvas
       value: 

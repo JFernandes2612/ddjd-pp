@@ -62,9 +62,14 @@ public class GameController : MonoBehaviour
         enemyController.StopSpawning();
         pause = true;
         remainingTime = pauseTime;
+
         while (checkPauseEnemiesOnBoard())
             yield return new WaitForSeconds(1);
+
         yield return new WaitForSeconds(pauseTime);
+
+        //while (checkPlayerOutsideMainArena())
+        //    yield return new WaitForSeconds(1);
         newRound();
     }
 
