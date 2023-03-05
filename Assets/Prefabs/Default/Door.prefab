@@ -471,6 +471,7 @@ MonoBehaviour:
   - 1
   doorCost: 100
   doorCanvas: {fileID: 0}
+  minUnlockDistance: 10
 --- !u!1001 &4526137358629624033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -488,7 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 511053150781259049, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
       propertyPath: m_Name
-      value: DoubleSidePlane
+      value: Blocker
       objectReference: {fileID: 0}
     - target: {fileID: 511053150781259049, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
       propertyPath: m_Layer
@@ -516,7 +517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3939709142523466673, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3939709142523466673, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
       propertyPath: m_LocalPosition.y

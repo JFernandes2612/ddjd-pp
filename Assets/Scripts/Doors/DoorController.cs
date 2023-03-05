@@ -22,7 +22,12 @@ public class DoorController : MonoBehaviour
     [SerializeField]
     private GameObject doorCanvas;
 
+    [SerializeField]
+    private float minUnlockDistance = 10.0f;
+
     private GameObject miniMapMark;
+
+    private GameObject blocker;
 
 
     // Distance from mid one door to dead center
@@ -53,6 +58,7 @@ public class DoorController : MonoBehaviour
         doorCanvas.SetActive(false);
 
         miniMapMark = transform.GetChild(0).gameObject;
+        blocker = transform.GetChild(3).gameObject;
     }
 
     // Update is called once per frame
@@ -60,12 +66,10 @@ public class DoorController : MonoBehaviour
     {
         if (!open && unlocked)
         {
-            miniMapMark.SetActive(true);
-            doorCanvas.SetActive(true);
             Vector3 doorsDeadCenterOnFloor = new Vector3(transform.position.x, player.transform.position.y, transform.position.z) + transform.forward * midDoorDistanceDeadCenter;
             float distanceToDoor = Vector3.Distance(player.transform.position, doorsDeadCenterOnFloor);
 
-            if (distanceToDoor < 10.0f)
+            if (distanceToDoor < minUnlockDistance)
             {
                 if (Input.GetKeyDown("e"))
                 {
@@ -95,6 +99,20 @@ public class DoorController : MonoBehaviour
 
     public void Unlock() {
         unlocked = true;
+        miniMapMark.SetActive(true);
+        doorCanvas.SetActive(true);
+        blocker.SetActive(false);
+    }
+
+    public void Lock() {
+        unlocked = false;
+        miniMapMark.SetActive(false);
+        doorCanvas.SetActive(false);
+        blocker.SetActive(true);
+    }
+
+    public void Unblock() {
+        blocker.SetActive(false);
     }
 
     public bool fullOpen() {

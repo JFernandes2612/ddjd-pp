@@ -18,6 +18,8 @@ public class Player : Entity
     //Perks
     private Dictionary<PerkType, int> perks = new Dictionary<PerkType, int>();
 
+    private bool inMainArena = true;
+
     protected void Start()
     {
         setBaseStats();
@@ -106,6 +108,18 @@ public class Player : Entity
         {
             Heal(1);
         }
+    }
+
+    private void OnCollisionStay(Collision other) {
+        if (other.gameObject.CompareTag("MainArena")) {
+            inMainArena = true;
+        } else {
+            inMainArena = false;
+        }
+    }
+
+    public bool getInMainArena() {
+        return inMainArena;
     }
 
     private void OnTriggerEnter(Collider other)

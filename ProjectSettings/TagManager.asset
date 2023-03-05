@@ -16,6 +16,7 @@ TagManager:
   - PerksEmpty
   - WeaponDrop
   - popup ui
+  - MainArena
   layers:
   - Default
   - TransparentFX

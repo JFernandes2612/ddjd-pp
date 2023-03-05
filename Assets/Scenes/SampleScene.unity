@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 23316954}
   m_Layer: 9
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: MainArena
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 115809952}
   m_Layer: 9
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: MainArena
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1429,7 +1429,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9648c1b2a89f6294eabd7e0c528b0ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1311216165}
   enemyController: {fileID: 66213528}
+  doorsController: {fileID: 836629316}
 --- !u!1001 &742839419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4138,6 +4140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopupUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4711093766907938506, guid: c4f1ac7a8b151fc05a1520745f27901f, type: 3}
+      propertyPath: m_TagString
+      value: MainArena
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4f1ac7a8b151fc05a1520745f27901f, type: 3}
 --- !u!4 &1985322266 stripped
@@ -4553,7 +4559,7 @@ GameObject:
   - component: {fileID: 2090028933}
   m_Layer: 9
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: MainArena
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -5,32 +5,43 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
+    private Player player;
+
+    [SerializeField]
     private EnemyController enemyController;
+
+    [SerializeField]
+    private DoorsController doorsController;
 
     private int wave = 0;
     private bool pause = false;
-    private float baseRoundTime = 120.0f;
-    private float pauseTime = 60.0f;
+    private float baseRoundTime = 5.0f;
+    private float pauseTime = 5.0f;
 
     private float remainingTime;
     private float currentTime = 1.0f;
 
+    private Coroutine newRoundCoroutine = null;
+
     // Start is called before the first frame update
     void Start()
     {
-        newRound();
+        newRoundCoroutine = StartCoroutine(newRound());
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        currentTime += Time.fixedDeltaTime;
+        currentTime += Time.deltaTime;
 
         if (!checkPauseEnemiesOnBoard())
-            remainingTime -= Time.fixedDeltaTime;
+            remainingTime -= Time.deltaTime;
 
-        if (remainingTime <= 0) {
-            StartCoroutine(betweenRound());
+        if (remainingTime <= 0.0f) {
+            if (!pause)
+                StartCoroutine(betweenRound());
+            else if (newRoundCoroutine == null)
+                newRoundCoroutine = StartCoroutine(newRound());
         }
     }
 
@@ -46,6 +57,10 @@ public class GameController : MonoBehaviour
         return remainingTime;
     }
 
+    public bool pleaseReturnToMainAreaCheck() {
+        return remainingTime <= 0.0f && playerNotInMainArena();
+    }
+
     public bool checkPauseEnemiesOnBoard() {
         return pause && enemyController.stillHasEnemies();
     }
@@ -58,25 +73,31 @@ public class GameController : MonoBehaviour
         return enemyController.getPoints();
     }
 
+    public bool playerNotInMainArena() {
+        return !player.getInMainArena();
+    }
+
     IEnumerator betweenRound() {
-        enemyController.StopSpawning();
         pause = true;
+        enemyController.StopSpawning();
         remainingTime = pauseTime;
 
         while (checkPauseEnemiesOnBoard())
-            yield return new WaitForSeconds(1);
+            yield return new WaitForEndOfFrame();
 
-        yield return new WaitForSeconds(pauseTime);
-
-        //while (checkPlayerOutsideMainArena())
-        //    yield return new WaitForSeconds(1);
-        newRound();
+        doorsController.UnlockCurrentDoor();
+        doorsController.UnblockEverything();
     }
 
-    private void newRound() {
-        pause = false;
+    IEnumerator newRound() {
+        while (playerNotInMainArena())
+            yield return new WaitForEndOfFrame();
+
+        doorsController.LockEverything();
         enemyController.StartSpawning();
         wave++;
         remainingTime = baseRoundTime * (1f + (wave - 1) * 0.1f);
+        pause = false;
+        newRoundCoroutine = null;
     }
 }

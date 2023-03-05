@@ -20,7 +20,7 @@ public class GameInfoUI : MonoBehaviour
     {
         gameInfoUI.text = string.Format("<b>Wave:</b> {0}\n<b>Score:</b> {1}\n<b>Time left:</b> {2}\n<b>Total time:</b> {3}",
                                         gameData.checkPause() ? string.Format("{0} <color=#00ffffff>→</color> {1}", gameData.getWave(), gameData.getWave() + 1) : gameData.getWave(),
-                                        gameData.getPoints(), gameData.checkPauseEnemiesOnBoard() ? "<color=red>Clear Enemies on Board</color>" : secondsToTime(gameData.getRemainingTime()),
+                                        gameData.getPoints(), gameData.checkPauseEnemiesOnBoard() ? "<color=red>Clear Enemies on Board!</color>" : gameData.pleaseReturnToMainAreaCheck() ? "<color=red>Please return right now to the Main Arena!</color>" : secondsToTime(gameData.getRemainingTime()),
                                         secondsToTime(gameData.getCurrentTime()));
     }
 
