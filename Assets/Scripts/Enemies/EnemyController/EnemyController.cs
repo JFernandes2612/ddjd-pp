@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -15,6 +16,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private GameObject[] enemyPrefabs;
 
+    [SerializeField]
+    private float[] enemySpawnChances;
+
     private List<GameObject> spawnedEnemies;
 
     private Coroutine spawningCoroutine;
@@ -26,6 +30,8 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         spawnedEnemies = new List<GameObject>();
+        Debug.Assert(enemyPrefabs.Length == enemySpawnChances.Length);
+        Debug.Assert(enemySpawnChances.Sum() == 1.0f);
     }
 
     public void StartSpawning() {
@@ -67,7 +73,16 @@ public class EnemyController : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(spawnRate);
-            GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+            float spawnChance = 0.0f;
+            float chance = Random.Range(0.0f, 1.0f);
+            GameObject enemyToSpawn = null;
+            for (int i = 0; i < enemyPrefabs.Length; i++) {
+                spawnChance += enemySpawnChances[i];
+                if (chance < spawnChance) {
+                    enemyToSpawn = enemyPrefabs[i];
+                    break;
+                }
+            }
             GameObject spawned = Instantiate(enemyToSpawn, CalculateSpawnPos(), Quaternion.identity);
             spawned.transform.parent = gameObject.transform;
             spawned.GetComponent<Enemy>().SetEnemyController(GetComponent<EnemyController>());

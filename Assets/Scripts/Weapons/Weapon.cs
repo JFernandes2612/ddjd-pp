@@ -10,7 +10,8 @@ public abstract class Weapon : MonoBehaviour
 
     // fields the specific weapon needs to know about
     [SerializeField]
-    protected int damage;
+    protected int baseDamage;
+    private float extraDamage;
     [SerializeField]
     protected float bulletSpeed;
     [SerializeField]
@@ -38,26 +39,14 @@ public abstract class Weapon : MonoBehaviour
 
     private Coroutine reloadingCoroutine;
 
-    // setters for powerups
-    public void SetDamage(int newDamage)
-    {
-        damage = newDamage;
-    }
-
-    public void SetReloadSpeed(int newReloadSpeed)
-    {
-        damage = newReloadSpeed;
-    }
-
-    public void SetFireRate(int newFireRate)
-    {
-        damage = newFireRate;
+    public void SetExtraDamage(float value) {
+        extraDamage += value;
     }
 
     // getters
     public int GetDamage()
     {
-        return damage;
+        return (int)((float)baseDamage * (1.0f + extraDamage));
     }
 
     public int GetMagazineSize()

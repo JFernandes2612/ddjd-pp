@@ -341,6 +341,9 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 1774974643893718006, guid: 98acaae286a4be04cb479b2eab56b4b4, type: 3}
   - {fileID: 8025142536786724047, guid: 60ac58471be86e570809132e8dd6d47f, type: 3}
+  enemySpawnChances:
+  - 0.8
+  - 0.2
 --- !u!1 &82250656
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class Shotgun : Weapon
             GameObject spawnedProjectile = Instantiate(bulletPrefab, shootPoint.position, Quaternion.identity);
             Projectile projectile = spawnedProjectile.GetComponent<Projectile>();
             projectile.SetRange(range);
-            projectile.SetDamage(damage);
+            projectile.SetDamage(GetDamage());
             spawnedProjectile.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
         }
     }

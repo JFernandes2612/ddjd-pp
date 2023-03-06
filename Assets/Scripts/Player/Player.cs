@@ -18,6 +18,8 @@ public class Player : Entity
     //Perks
     private Dictionary<PerkType, int> perks = new Dictionary<PerkType, int>();
 
+    private float extraDamage = 0.0f;
+
     private bool inMainArena = true;
 
     protected void Start()
@@ -48,6 +50,7 @@ public class Player : Entity
 
         if (Input.GetMouseButton(0))
         {
+            primaryWeapon.GetComponent<Weapon>().SetExtraDamage(extraDamage);
             primaryWeapon.GetComponent<Weapon>().Shoot();
         }
 
@@ -69,7 +72,6 @@ public class Player : Entity
     // Calculates and returns the player's input
     protected override Vector3 GetMoveDirection()
     {
-        // TODO: abstract this and Enemy's GetMoveDirection method
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputZ = Input.GetAxisRaw("Vertical");
         float inputY = 0;
@@ -81,7 +83,6 @@ public class Player : Entity
     // Destroys this GameObject instance
     protected override void Die()
     {
-        // TODO: abstract this and Player's Die method
         Destroy(gameObject);
     }
 
@@ -137,6 +138,9 @@ public class Player : Entity
                     break;
                 case PerkType.MoveSpeed:
                     AddMovementSpeed(quantity * baseMoveSpeed);
+                    break;
+                case PerkType.Damage:
+                    extraDamage += quantity;
                     break;
                 default:
                     break;
