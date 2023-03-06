@@ -22,6 +22,11 @@ public class Player : Entity
 
     private bool inMainArena = true;
 
+    private bool immune = false;
+
+    [SerializeField]
+    private float immunityTime = 1.0f;
+
     protected void Start()
     {
         setBaseStats();
@@ -89,17 +94,19 @@ public class Player : Entity
     // Handles collisions between this and other object instances
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("EnemyProjectile"))
+        if (collision.gameObject.CompareTag("EnemyProjectile") && !immune)
         {
             Projectile projScript = collision.gameObject.GetComponent<Projectile>();
-            health -= projScript.getDamage();
+            Damage(projScript.getDamage());
             if (health <= 0) Die();
+            StartCoroutine(ImmunityCoroutine());
         }
-        else if (collision.gameObject.CompareTag("Enemy"))
+        else if (collision.gameObject.CompareTag("Enemy") && !immune)
         {
             Enemy enemyScript = collision.gameObject.GetComponent<Enemy>();
             Damage(enemyScript.getDamage());
             if (health <= 0) Die();
+            StartCoroutine(ImmunityCoroutine());
         }
         else if (collision.gameObject.CompareTag("Coin"))
         {
@@ -210,5 +217,11 @@ public class Player : Entity
             secondaryWeapon = SpawnWeapon(weapon);
             swapWeapon();
         }
+    }
+
+    IEnumerator ImmunityCoroutine() {
+        immune = true;
+        yield return new WaitForSeconds(immunityTime);
+        immune = false;
     }
 }
