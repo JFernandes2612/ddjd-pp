@@ -26,6 +26,13 @@ public class EnemyController : MonoBehaviour
     private int points;
 
     private int wave = 0;
+
+    [SerializeField]
+    private float spawnRateScaling = 0.025f;
+    [SerializeField]
+    private float enemyHealthScaling = 0.05f;
+    [SerializeField]
+    private float enemyDamageScaling = 0.05f;
     // Initializes list of spawned enemies and starts the spawning process
     void Start()
     {
@@ -72,7 +79,7 @@ public class EnemyController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(spawnRate);
+            yield return new WaitForSeconds(spawnRate * (1.0f - (wave - 1.0f) * spawnRateScaling));
             float spawnChance = 0.0f;
             float chance = Random.Range(0.0f, 1.0f);
             GameObject enemyToSpawn = null;
@@ -86,6 +93,8 @@ public class EnemyController : MonoBehaviour
             GameObject spawned = Instantiate(enemyToSpawn, CalculateSpawnPos(), Quaternion.identity);
             spawned.transform.parent = gameObject.transform;
             spawned.GetComponent<Enemy>().SetEnemyController(GetComponent<EnemyController>());
+            spawned.GetComponent<Enemy>().AddMaxHealth((int)(spawned.GetComponent<Enemy>().GetMaxHealth() * ((wave - 1) * enemyHealthScaling)));
+            spawned.GetComponent<Enemy>().SetExtraDamage((wave - 1) * enemyDamageScaling);
             spawnedEnemies.Add(spawned);
         }
     }

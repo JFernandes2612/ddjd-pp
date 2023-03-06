@@ -13,7 +13,7 @@ public class Player : Entity
     private GameObject secondaryWeapon;
 
     // Coins
-    private int coins = 1000;
+    private int coins = 0;
 
     //Perks
     private Dictionary<PerkType, int> perks = new Dictionary<PerkType, int>();

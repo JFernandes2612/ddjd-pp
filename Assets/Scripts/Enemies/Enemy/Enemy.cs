@@ -19,6 +19,7 @@ public abstract class Enemy : Entity
 
     [SerializeField]
     protected int damage;
+    protected float extraDamage;
     [SerializeField]
     protected int points;
 
@@ -28,7 +29,9 @@ public abstract class Enemy : Entity
     private GameObject[] collectables;
 
     [SerializeField]
-    private float[] collectablesDropChances;
+    private float[] minCollectablesDrop;
+    [SerializeField]
+    private float[] maxCollectablesDrop;
 
 
     // Perks drops
@@ -42,7 +45,8 @@ public abstract class Enemy : Entity
     {
         setBaseStats();
         // Assert same sizes
-        Debug.Assert(collectables.Length == collectablesDropChances.Length);
+        Debug.Assert(collectables.Length == minCollectablesDrop.Length);
+        Debug.Assert(collectables.Length == maxCollectablesDrop.Length);
         Debug.Assert(perks.Length == perksDropChances.Length);
 
         Debug.Assert(perksDropChances.Sum() <= 1.0f);
@@ -58,9 +62,17 @@ public abstract class Enemy : Entity
         this.enemyController = enemyController;
     }
 
+    public void SetExtraDamage(float value) {
+        extraDamage = value;
+    }
+
+    public float GetExtraDamage() {
+        return extraDamage;
+    }
+
     public int getDamage()
     {
-        return damage;
+        return (int)(damage * (1.0f + extraDamage));
     }
 
     public Vector3 GetCanvasOffsets()
@@ -119,7 +131,7 @@ public abstract class Enemy : Entity
     {
         for (int i = 0; i < collectables.Length; i++)
         {
-            int quantity = (int)collectablesDropChances[i] + (Random.Range(0.0f, 1.0f) < collectablesDropChances[i] - (int)collectablesDropChances[i] ? 1 : 0);
+            int quantity = (int)Random.Range(minCollectablesDrop[i], maxCollectablesDrop[i]);
             for (int c = 0; c < quantity; c++)
                 Instantiate(collectables[i], transform.position, Quaternion.identity);
         }

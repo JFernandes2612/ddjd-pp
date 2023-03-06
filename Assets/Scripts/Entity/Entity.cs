@@ -18,7 +18,7 @@ public abstract class Entity : MonoBehaviour
     [SerializeField]
     protected int baseMaxHealth = 100;
     protected int maxHealth;
-    protected int health = 50;
+    protected int health;
 
     protected void setBaseStats() {
         moveSpeed = baseMoveSpeed;

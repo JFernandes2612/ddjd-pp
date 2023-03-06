@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05892bcaa3720ca4caf2a158f03891a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 2
+  spawnRate: 10
   xBound: 15
   ySpawnPos: 0
   zBound: 15
@@ -344,6 +344,9 @@ MonoBehaviour:
   enemySpawnChances:
   - 0.8
   - 0.2
+  spawnRateScaling: 0.025
+  enemyHealthScaling: 0.05
+  enemyDamageScaling: 0.05
 --- !u!1 &82250656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,7 +1006,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477812624}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1231,6 +1234,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1311216158}
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: doorCost
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: doorCanvas
       value: 
       objectReference: {fileID: 38538084}
@@ -1242,6 +1249,34 @@ PrefabInstance:
       propertyPath: roomSpawnPoint
       value: 
       objectReference: {fileID: 1992719467}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.data[1]
+      value: 
+      objectReference: {fileID: 7553160696557495097, guid: 07b908f9bd960eb44b27e6b178259e0f, type: 3}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.data[2]
+      value: 
+      objectReference: {fileID: 7553160696557495097, guid: ebe049b1f61f76548a9cda57c42e1e77, type: 3}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[0]
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[1]
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[2]
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6734323240171389666, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: m_Name
       value: MidArea
@@ -1604,6 +1639,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1311216158}
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: doorCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: doorCanvas
       value: 
       objectReference: {fileID: 729556192}
@@ -1615,6 +1654,38 @@ PrefabInstance:
       propertyPath: roomSpawnPoint
       value: 
       objectReference: {fileID: 806697138}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.data[0]
+      value: 
+      objectReference: {fileID: 7553160696557495097, guid: a7a92fe0d74f01a4c8ab2e901a660568, type: 3}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.data[1]
+      value: 
+      objectReference: {fileID: 7553160696557495097, guid: 07b908f9bd960eb44b27e6b178259e0f, type: 3}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.data[2]
+      value: 
+      objectReference: {fileID: 7553160696557495097, guid: ebe049b1f61f76548a9cda57c42e1e77, type: 3}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[0]
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[1]
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[2]
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6734323240171389666, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: m_Name
       value: BigWallPart1
@@ -2235,6 +2306,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1311216158}
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: doorCost
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: doorCanvas
       value: 
       objectReference: {fileID: 963018185}
@@ -2246,6 +2321,34 @@ PrefabInstance:
       propertyPath: roomSpawnPoint
       value: 
       objectReference: {fileID: 434771912}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.data[1]
+      value: 
+      objectReference: {fileID: 7553160696557495097, guid: 07b908f9bd960eb44b27e6b178259e0f, type: 3}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.data[2]
+      value: 
+      objectReference: {fileID: 7553160696557495097, guid: ebe049b1f61f76548a9cda57c42e1e77, type: 3}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[0]
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[1]
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[2]
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6734323240171389666, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: m_Name
       value: BigWallPart2
@@ -3082,7 +3185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3939709142523466673, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3939709142523466673, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
       propertyPath: m_LocalScale.x
@@ -3351,6 +3454,26 @@ PrefabInstance:
       propertyPath: roomSpawnPoint
       value: 
       objectReference: {fileID: 1071319387}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.data[1]
+      value: 
+      objectReference: {fileID: 7553160696557495097, guid: 07b908f9bd960eb44b27e6b178259e0f, type: 3}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[0]
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[1]
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6734323240171389666, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: m_Name
       value: BigArea
@@ -3485,6 +3608,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1311216158}
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: doorCost
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: doorCanvas
       value: 
       objectReference: {fileID: 411535438}
@@ -3496,6 +3623,34 @@ PrefabInstance:
       propertyPath: roomSpawnPoint
       value: 
       objectReference: {fileID: 337929006}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.data[1]
+      value: 
+      objectReference: {fileID: 7553160696557495097, guid: 07b908f9bd960eb44b27e6b178259e0f, type: 3}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.data[2]
+      value: 
+      objectReference: {fileID: 7553160696557495097, guid: ebe049b1f61f76548a9cda57c42e1e77, type: 3}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[0]
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[1]
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[2]
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6734323240171389666, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: m_Name
       value: SmallArea
@@ -4198,6 +4353,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1311216158}
     - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: doorCost
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: doorCanvas
       value: 
       objectReference: {fileID: 1206350032}
@@ -4209,6 +4368,30 @@ PrefabInstance:
       propertyPath: roomSpawnPoint
       value: 
       objectReference: {fileID: 837447007}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.data[0]
+      value: 
+      objectReference: {fileID: 7553160696557495097, guid: 07b908f9bd960eb44b27e6b178259e0f, type: 3}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: rooms.Array.data[1]
+      value: 
+      objectReference: {fileID: 7553160696557495097, guid: ebe049b1f61f76548a9cda57c42e1e77, type: 3}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[0]
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159073717370765731, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
+      propertyPath: roomDropRate.Array.data[1]
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6734323240171389666, guid: bd360466020a412428131a6c2ce3d5d6, type: 3}
       propertyPath: m_Name
       value: BigWallPart3

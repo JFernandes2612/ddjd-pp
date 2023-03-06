@@ -10,12 +10,13 @@ public abstract class RangedEnemy : Enemy
     protected float hoverDistance;
     [SerializeField]
     protected float graceRange = 1;
-    
+
     protected abstract void rotateWeapon();
 
     protected override void Update(){
         base.Update();
         rotateWeapon();
+        weaponObject.GetComponent<Weapon>().SetExtraDamage(GetExtraDamage());
         weaponObject.GetComponent<Weapon>().Shoot();
     }
 }

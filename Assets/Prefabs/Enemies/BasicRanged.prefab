@@ -128,25 +128,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac02a4c30e538ea5b3f1f57ee567ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMoveSpeed: 4
-  baseMaxHealth: 10
+  baseMoveSpeed: 10
+  baseMaxHealth: 6
   enemyCanvasPrefab: {fileID: 3153150588936743938, guid: e7d69bf7d554d2ada9c9b57494fc6d72, type: 3}
-  damage: 5
+  damage: 10
   points: 5
   collectables:
   - {fileID: 5823442791628935116, guid: e043e849458bccc45a08a30aa5bb4d80, type: 3}
   - {fileID: 6677340210668900196, guid: 11a8607b0955da54a87f4a9b0a0d51f6, type: 3}
-  collectablesDropChances:
-  - 10
-  - 5
+  minCollectablesDrop:
+  - 2
+  - 1
+  maxCollectablesDrop:
+  - 11
+  - 6
   perks:
   - {fileID: 358900078382472889, guid: 1b1c2a57cebc44b4f9ba91da3bc8b9a0, type: 3}
   - {fileID: 358900078382472889, guid: 2c0a624ff3d8a13419400a337506c4bd, type: 3}
   - {fileID: 358900078382472889, guid: 2cecda101ab6c4249826cf009d0ab639, type: 3}
   perksDropChances:
   - 0.3
-  - 0.3
-  - 0.2
+  - 0.1
+  - 0.1
   weaponObject: {fileID: 6624999180834626147}
   hoverDistance: 5
   graceRange: 1
