@@ -161,6 +161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyWeapon
       objectReference: {fileID: 0}
+    - target: {fileID: 7662981063384385549, guid: 0b9b533aae21ebf6e84170cfd451a3e1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7662981063384385649, guid: 0b9b533aae21ebf6e84170cfd451a3e1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -175,7 +179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7662981063384385649, guid: 0b9b533aae21ebf6e84170cfd451a3e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7662981063384385649, guid: 0b9b533aae21ebf6e84170cfd451a3e1, type: 3}
       propertyPath: m_LocalRotation.w
