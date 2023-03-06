@@ -24,7 +24,8 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]
     private float reloadSpeed;
     [SerializeField]
-    private float fireRate;
+    private float baseFireRate;
+    private float extraFireRate;
     private bool canShoot = true;
     private bool reloading = false;
 
@@ -40,7 +41,11 @@ public abstract class Weapon : MonoBehaviour
     private Coroutine reloadingCoroutine;
 
     public void SetExtraDamage(float value) {
-        extraDamage += value;
+        extraDamage = value;
+    }
+
+    public void setExtraFireRate(float value) {
+        extraFireRate = value;
     }
 
     // getters
@@ -71,7 +76,7 @@ public abstract class Weapon : MonoBehaviour
 
     public float GetFireRate()
     {
-        return fireRate;
+        return baseFireRate * (1.0f + extraFireRate);
     }
 
     public int getBulletsInMagazine()
@@ -121,7 +126,7 @@ public abstract class Weapon : MonoBehaviour
     IEnumerator ShotCooldown()
     {
         canShoot = false;
-        yield return new WaitForSeconds(1 / fireRate);
+        yield return new WaitForSeconds(1 / GetFireRate());
         canShoot = true;
     }
 

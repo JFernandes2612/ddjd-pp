@@ -6,7 +6,8 @@ public enum PerkType
 {
     MaxHealth,
     MoveSpeed,
-    Damage
+    Damage,
+    FireRate
 }
 
 public class Perk : MonoBehaviour

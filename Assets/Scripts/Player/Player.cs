@@ -19,6 +19,7 @@ public class Player : Entity
     private Dictionary<PerkType, int> perks = new Dictionary<PerkType, int>();
 
     private float extraDamage = 0.0f;
+    private float extraFireRate = 0.0f;
 
     private bool inMainArena = true;
 
@@ -56,6 +57,7 @@ public class Player : Entity
         if (Input.GetMouseButton(0))
         {
             primaryWeapon.GetComponent<Weapon>().SetExtraDamage(extraDamage);
+            primaryWeapon.GetComponent<Weapon>().setExtraFireRate(extraFireRate);
             primaryWeapon.GetComponent<Weapon>().Shoot();
         }
 
@@ -148,6 +150,9 @@ public class Player : Entity
                     break;
                 case PerkType.Damage:
                     extraDamage += quantity;
+                    break;
+                case PerkType.FireRate:
+                    extraFireRate += quantity;
                     break;
                 default:
                     break;
