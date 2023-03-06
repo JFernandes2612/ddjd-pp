@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05892bcaa3720ca4caf2a158f03891a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 10
+  spawnRate: 2
   xBound: 15
   ySpawnPos: 0
   zBound: 15
@@ -2140,7 +2140,7 @@ GameObject:
   - component: {fileID: 865577797}
   m_Layer: 6
   m_Name: MiniMapMark
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2969,6 +2969,7 @@ MonoBehaviour:
   baseMaxHealth: 100
   primaryWeapon: {fileID: 7662981063384385549, guid: 3471c8fa915fe19f1862987988722552, type: 3}
   secondaryWeapon: {fileID: 0}
+  immunityTime: 0.1
 --- !u!1 &1338674642
 GameObject:
   m_ObjectHideFlags: 0

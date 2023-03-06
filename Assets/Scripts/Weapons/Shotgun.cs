@@ -19,6 +19,7 @@ public class Shotgun : Weapon
             Projectile projectile = spawnedProjectile.GetComponent<Projectile>();
             projectile.SetRange(range);
             projectile.SetDamage(GetDamage());
+            projectile.Set();
             spawnedProjectile.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
         }
     }

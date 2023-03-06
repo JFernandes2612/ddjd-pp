@@ -58,15 +58,18 @@ public abstract class Enemy : Entity
         this.enemyController = enemyController;
     }
 
-    public int getDamage() {
+    public int getDamage()
+    {
         return damage;
     }
 
-    public Vector3 GetCanvasOffsets(){
+    public Vector3 GetCanvasOffsets()
+    {
         return canvasOffsets;
     }
 
-    private void CreateEnemyUI(){
+    private void CreateEnemyUI()
+    {
         Vector3 pos = transform.position + canvasOffsets;
         Quaternion rot = Quaternion.Euler(75, 0, 0);
         enemyUI = Instantiate(enemyCanvasPrefab, pos, rot);
@@ -75,16 +78,19 @@ public abstract class Enemy : Entity
         SetSlider();
     }
 
-    private void SetSlider(){
+    private void SetSlider()
+    {
         healthBar.maxValue = health;
         healthBar.value = health;
     }
 
-    private void UpdateSlider(){
+    private void UpdateSlider()
+    {
         healthBar.value = health;
     }
 
-    public int getPoints() {
+    public int getPoints()
+    {
         return points;
     }
 
@@ -100,7 +106,8 @@ public abstract class Enemy : Entity
         Move();
     }
 
-    protected override void Die() {
+    protected override void Die()
+    {
         dropCollectables();
 
         dropPerks();
@@ -108,36 +115,51 @@ public abstract class Enemy : Entity
         enemyController.RemoveEnemy(gameObject);
     }
 
-    private void dropCollectables() {
-        for (int i = 0; i < collectables.Length; i++) {
+    private void dropCollectables()
+    {
+        for (int i = 0; i < collectables.Length; i++)
+        {
             int quantity = (int)collectablesDropChances[i] + (Random.Range(0.0f, 1.0f) < collectablesDropChances[i] - (int)collectablesDropChances[i] ? 1 : 0);
             for (int c = 0; c < quantity; c++)
                 Instantiate(collectables[i], transform.position, Quaternion.identity);
         }
     }
 
-    private void dropPerks() {
+    private void dropPerks()
+    {
         float currentPerkDropChance = 0.0f;
         float drop = Random.Range(0.0f, 1.0f);
-        for (int i = 0; i < perks.Length; i++) {
+        for (int i = 0; i < perks.Length; i++)
+        {
             currentPerkDropChance += perksDropChances[i];
 
-            if (drop < currentPerkDropChance) {
+            if (drop < currentPerkDropChance)
+            {
                 Instantiate(perks[i], new Vector3(transform.position.x, -0.575f, transform.position.z), Quaternion.identity);
                 break;
             }
         }
     }
 
+    void HandleCollision(GameObject projectile)
+    {
+        if (projectile.CompareTag("PlayerProjectile"))
+        {
+            Projectile projScript = projectile.GetComponent<Projectile>();
+            Damage(projScript.getDamage());
+            UpdateSlider();
+            if (health <= 0) Die();
+        }
+    }
+
     // Handles collisions between this and other object instances
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("PlayerProjectile"))
-        {
-            Projectile projScript = collision.gameObject.GetComponent<Projectile>();
-            Damage(projScript.getDamage());
-            UpdateSlider();
-            if(health <= 0) Die();
-        }
+        HandleCollision(collision.gameObject);
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        HandleCollision(collider.gameObject);
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5226285902177698883}
   m_Layer: 12
-  m_Name: GameObject
+  m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,12 +143,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3649332416473179642, guid: 28285c447c97f80e68960880f0948236, type: 3}
-  damage: 1
+  baseDamage: 1
   bulletSpeed: 15
   range: 5
   magazineSize: 4
   reloadSpeed: 5
-  fireRate: 3
+  baseFireRate: 1
   fireCursor: {fileID: 2800000, guid: 7ce832ef49566014ebf643770dbb4e3a, type: 3}
   reloadCursor: {fileID: 2800000, guid: 9765f7658aadef4448580d879b54748b, type: 3}
   pelletNumber: 7

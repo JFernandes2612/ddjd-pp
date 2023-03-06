@@ -9,6 +9,7 @@ public class Laser : Weapon
         Projectile projectile = spawnedProjectile.GetComponent<Projectile>();
         projectile.SetRange(range);
         projectile.SetDamage(GetDamage());
+        projectile.Set();
         spawnedProjectile.GetComponent<Rigidbody>().velocity = shootPoint.forward * bulletSpeed;
     }
 }

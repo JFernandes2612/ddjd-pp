@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7662981063384385651}
   - component: {fileID: 7662981063384385650}
   m_Layer: 12
-  m_Name: Pistol
+  m_Name: Sniper
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7662981063384385549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29289, y: 0.18220937, z: 0.6146248}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7662981064111359375}
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1b422b05fb8a8394da8e079040f7c749, type: 2}
+  - {fileID: 2100000, guid: 2cc231c6ec72d164aa238bbf48f4afac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,13 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd32e46c1aa9632797620288e511bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1462741489704342317, guid: 06e0ed06fbf46ea73a5da967c78988e0, type: 3}
-  baseDamage: 4
-  bulletSpeed: 25
+  bulletPrefab: {fileID: 1462741489704342317, guid: 639cfd749d08db14abc3aab5ab894743, type: 3}
+  baseDamage: 20
+  bulletSpeed: 50
   range: 99999
-  magazineSize: 16
-  reloadSpeed: 3
-  baseFireRate: 2.5
+  magazineSize: 5
+  reloadSpeed: 10
+  baseFireRate: 0.8
   fireCursor: {fileID: 2800000, guid: 7ce832ef49566014ebf643770dbb4e3a, type: 3}
   reloadCursor: {fileID: 2800000, guid: 9765f7658aadef4448580d879b54748b, type: 3}
 --- !u!1 &7662981064111359374

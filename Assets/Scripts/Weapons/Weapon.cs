@@ -11,7 +11,7 @@ public abstract class Weapon : MonoBehaviour
     // fields the specific weapon needs to know about
     [SerializeField]
     protected int baseDamage;
-    private float extraDamage;
+    private float extraDamage = 0.0f;
     [SerializeField]
     protected float bulletSpeed;
     [SerializeField]
@@ -25,7 +25,7 @@ public abstract class Weapon : MonoBehaviour
     private float reloadSpeed;
     [SerializeField]
     private float baseFireRate;
-    private float extraFireRate;
+    private float extraFireRate = 0.0f;
     private bool canShoot = true;
     private bool reloading = false;
 
