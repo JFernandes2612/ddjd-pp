@@ -16,9 +16,10 @@ public class DoorsController : MonoBehaviour
     }
 
     public void LockEverything() {
-        for (int i = 0; i < transform.childCount; i++) {
-            doorControllers[i].Lock();
-        }
+        if (doorControllers != null)
+            for (int i = 0; i < transform.childCount; i++) {
+                doorControllers[i].Lock();
+            }
     }
 
     public void UnlockCurrentDoor() {

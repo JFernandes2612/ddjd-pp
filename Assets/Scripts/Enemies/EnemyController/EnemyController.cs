@@ -34,7 +34,8 @@ public class EnemyController : MonoBehaviour
     }
 
     public void StopSpawning() {
-        StopCoroutine(spawningCoroutine);
+        if (spawningCoroutine != null)
+            StopCoroutine(spawningCoroutine);
     }
 
     public bool stillHasEnemies() {
