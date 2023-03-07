@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -42,6 +43,19 @@ public class GameController : MonoBehaviour
                 StartCoroutine(betweenRound());
             else if (newRoundCoroutine == null)
                 newRoundCoroutine = StartCoroutine(newRound());
+        }
+
+        if (Input.GetKeyDown("escape")) {
+            StartCoroutine(LoadMainMenuAsyncScene());
+        }
+    }
+
+    private IEnumerator LoadMainMenuAsyncScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(0);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
         }
     }
 
