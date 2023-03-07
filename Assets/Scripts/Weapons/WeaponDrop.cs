@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WeaponDrop : MonoBehaviour
 {
-    [SerializeField]
     private GameObject player;
 
     [SerializeField]

@@ -139,7 +139,7 @@ MonoBehaviour:
   - 0
   - 0
   maxCollectablesDrop:
-  - 6
+  - 4
   - 2
   perks:
   - {fileID: 358900078382472889, guid: 1b1c2a57cebc44b4f9ba91da3bc8b9a0, type: 3}
