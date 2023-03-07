@@ -27,18 +27,19 @@ public class DoorsController : MonoBehaviour
     }
 
     public void UnblockEverything() {
-        for (int i = 0; i <= currentDoor; i++) {
+        for (int i = 0; i <= (currentDoor < doorControllers.Length ? currentDoor : currentDoor-1); i++) {
             doorControllers[i].Unblock();
         }
     }
 
     private void Update() {
         // Logic to handle current door
-        if (doorControllers[currentDoor].fullOpen()) {
-            currentDoor++;
-            if (currentDoor < doorControllers.Length) {
-                UnlockCurrentDoor();
+        if (currentDoor < doorControllers.Length)
+            if (doorControllers[currentDoor].fullOpen()) {
+                currentDoor++;
+                if (currentDoor < doorControllers.Length) {
+                    UnlockCurrentDoor();
+                }
             }
-        }
     }
 }

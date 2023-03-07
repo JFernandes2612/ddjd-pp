@@ -37,6 +37,7 @@ public class Player : Entity
 
     private GameObject SpawnWeapon(GameObject weapon) {
         GameObject weaponSpawned = Instantiate(weapon, transform.position + weapon.transform.localScale.z * transform.forward / 2 + transform.localScale.z * transform.forward / 2, transform.localRotation);
+        weaponSpawned.GetComponent<Weapon>().Start();
         weaponSpawned.transform.parent = transform;
         return weaponSpawned;
     }

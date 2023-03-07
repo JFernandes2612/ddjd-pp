@@ -40,6 +40,8 @@ public abstract class Enemy : Entity
     [SerializeField]
     private float[] perksDropChances;
 
+    private bool dead = false;
+
     // Fetches reference to the player model on the first frame
     void Start()
     {
@@ -120,11 +122,14 @@ public abstract class Enemy : Entity
 
     protected override void Die()
     {
-        dropCollectables();
+        if (!dead) {
+            dead = true;
+            dropCollectables();
 
-        dropPerks();
+            dropPerks();
 
-        enemyController.RemoveEnemy(gameObject);
+            enemyController.RemoveEnemy(gameObject);
+        }
     }
 
     private void dropCollectables()

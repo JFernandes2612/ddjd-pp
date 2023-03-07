@@ -85,7 +85,7 @@ public abstract class Weapon : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    private void Start()
+    public void Start()
     {
         shootPoint = transform.GetChild(0);
         RefillClip();
