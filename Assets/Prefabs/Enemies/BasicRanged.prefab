@@ -131,7 +131,7 @@ MonoBehaviour:
   baseMoveSpeed: 10
   baseMaxHealth: 6
   enemyCanvasPrefab: {fileID: 3153150588936743938, guid: e7d69bf7d554d2ada9c9b57494fc6d72, type: 3}
-  damage: 10
+  damage: 0
   points: 5
   collectables:
   - {fileID: 5823442791628935116, guid: e043e849458bccc45a08a30aa5bb4d80, type: 3}
@@ -182,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7662981063384385649, guid: 0b9b533aae21ebf6e84170cfd451a3e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7662981063384385649, guid: 0b9b533aae21ebf6e84170cfd451a3e1, type: 3}
       propertyPath: m_LocalRotation.w
