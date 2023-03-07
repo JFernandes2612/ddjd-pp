@@ -1705,7 +1705,11 @@ MonoBehaviour:
 
     On the top center of the screen you may found the <b>current
     wave</b>, <b>score</b>, <b>time left</b> and <b>the time since the start of your
-    game</b>.'
+    game</b>.
+
+
+    You can press <b>ESC</b> to <b>leave the game</b> at anytime
+    or <b>exit any menus</b> (like this one :D).'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
