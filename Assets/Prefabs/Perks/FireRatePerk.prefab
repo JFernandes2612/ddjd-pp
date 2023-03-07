@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  quantity: 0.1
+  quantity: 0.05
 --- !u!54 &1769405078583149422
 Rigidbody:
   m_ObjectHideFlags: 0
