@@ -32,7 +32,7 @@ public abstract class Entity : MonoBehaviour
         rb.velocity = moveDirection.normalized * moveSpeed;
     }
 
-    public void Damage(int value) {
+    public virtual void Damage(int value) {
         health = Mathf.Max(health - value, 0);
     }
 
