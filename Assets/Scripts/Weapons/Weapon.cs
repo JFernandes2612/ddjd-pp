@@ -6,6 +6,7 @@ public abstract class Weapon : MonoBehaviour
 {
     [SerializeField]
     protected GameObject bulletPrefab;
+    [SerializeField]
     protected Transform shootPoint;
 
     // fields the specific weapon needs to know about
@@ -87,7 +88,12 @@ public abstract class Weapon : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        shootPoint = transform.GetChild(0);
+        foreach(Transform child in transform){
+            if(child.tag == "ShootPoint"){
+                shootPoint = child;
+                break;
+            }
+        }
         RefillClip();
     }
 

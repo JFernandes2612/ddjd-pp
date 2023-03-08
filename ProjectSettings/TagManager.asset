@@ -17,6 +17,7 @@ TagManager:
   - WeaponDrop
   - popup ui
   - MainArena
+  - ShootPoint
   layers:
   - Default
   - TransparentFX
