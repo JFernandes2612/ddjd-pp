@@ -162,7 +162,7 @@ Light:
     m_Resolution: 3
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
+    m_Bias: 0
     m_NormalBias: 0.4
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
@@ -184,7 +184,7 @@ Light:
       e33: 1
     m_UseCullingMatrixOverride: 0
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
+  m_DrawHalo: 1
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
@@ -252,7 +252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -497, y: -188}
+  m_AnchoredPosition: {x: -497, y: -126.4}
   m_SizeDelta: {x: 552.914, y: 265.382}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &18479168
@@ -275,15 +275,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Welcome to <b>FEUPHell</b>!
-
-
-    In this game you will battle yourself
-    out of FEUP fighting endless waves of enemies with a wide variaty of weapons
-    and perks to find!
-
-    Feel free to explore the outside map of the faculty and
-    replicas of some of your favourite rooms.'
+  m_text: "<size=32>Welcome to <b>FEUPHell</b>!</size>\n\nYou play as a blue cube
+    engineer that was brought from another dimention to FEUP. At night all the cubes
+    in the world, yourself included, animate. But, during one of these nights, red
+    cubes started coming after you and they would not stop! \n\nYou will battle yourself
+    out of FEUP, fighting endless waves of enemies with a wide variaty of weapons
+    and perks to find!\nFeel free to explore the outside area of the faculty and
+    replicas of some of your favourite rooms."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -310,8 +308,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1017,7 +1015,7 @@ GameObject:
   - component: {fileID: 688688594}
   - component: {fileID: 688688596}
   - component: {fileID: 688688595}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: VersionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1073,8 +1071,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1585,10 +1583,10 @@ MonoBehaviour:
   finalBlitToCameraTarget: 0
   antialiasingMode: 3
   temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
+    jitterSpread: 1
+    sharpness: 0
+    stationaryBlending: 0.99
+    motionBlending: 0.99
   subpixelMorphologicalAntialiasing:
     quality: 2
   fastApproximateAntialiasing:

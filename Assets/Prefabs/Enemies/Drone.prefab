@@ -140,13 +140,13 @@ MonoBehaviour:
   - 0
   - 0
   maxCollectablesDrop:
-  - 4
-  - 2
+  - 5
+  - 3
   perks:
   - {fileID: 358900078382472889, guid: 1b1c2a57cebc44b4f9ba91da3bc8b9a0, type: 3}
   - {fileID: 358900078382472889, guid: 2c0a624ff3d8a13419400a337506c4bd, type: 3}
   - {fileID: 358900078382472889, guid: 2208cd586affdd4468be207debdebb0f, type: 3}
   perksDropChances:
-  - 0.15
+  - 0.075
   - 0.05
-  - 0.05
+  - 0.01
