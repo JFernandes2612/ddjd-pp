@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 7553160697645805285}
   - component: {fileID: 7553160697645805282}
   - component: {fileID: 7553160697645805283}
+  - component: {fileID: 932320585557600724}
   m_Layer: 10
   m_Name: Floor
   m_TagString: Untagged
@@ -132,7 +133,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f1b38f97968716d41af14b082ef87ea6, type: 2}
+  - {fileID: 2100000, guid: bb1b691434461c042a69e3cabbcdd6bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,6 +169,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &932320585557600724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7553160697645805281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506dda294e2d41d4da3dccf0c0288c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &14456836269862979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179,6 +192,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 75372633595079980, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f3d04966949c4247b6b1c05eb2c07ad, type: 2}
     - target: {fileID: 511053150781259049, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
       propertyPath: m_Name
       value: FrontWall1
@@ -265,6 +282,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 75372633595079980, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f3d04966949c4247b6b1c05eb2c07ad, type: 2}
     - target: {fileID: 511053150781259049, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
       propertyPath: m_Name
       value: FrontWall2
@@ -421,6 +442,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 874245217033193547, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f3d04966949c4247b6b1c05eb2c07ad, type: 2}
     - target: {fileID: 3939709142523466673, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -507,6 +532,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 874245217033193547, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f3d04966949c4247b6b1c05eb2c07ad, type: 2}
     - target: {fileID: 3939709142523466673, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -585,6 +614,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 75372633595079980, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f3d04966949c4247b6b1c05eb2c07ad, type: 2}
     - target: {fileID: 511053150781259049, guid: a8a7ff9a30e0ede43b7f035d4929f29b, type: 3}
       propertyPath: m_Name
       value: SideWall1
