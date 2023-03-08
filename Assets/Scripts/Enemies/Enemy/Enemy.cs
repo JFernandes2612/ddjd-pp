@@ -10,7 +10,11 @@ public abstract class Enemy : Entity
     protected EnemyController enemyController;
     protected GameObject player;
 
-    // enemy health par prefab
+    // damage text prefab
+    [SerializeField]
+    private GameObject damageTextPrefab;
+
+    // enemy health bar prefab
     [SerializeField]
     private GameObject enemyCanvasPrefab;
     private Vector3 canvasOffsets = new Vector3(0, 1.0f, 0.7f);
@@ -64,6 +68,17 @@ public abstract class Enemy : Entity
         this.enemyController = enemyController;
     }
 
+    public override void Damage(int value) {
+        base.Damage(value);
+        GameObject text = Instantiate(damageTextPrefab, enemyUI.transform.position, enemyUI.transform.rotation, enemyUI.transform);
+        float baseYOffset = -25f;
+        float extraXOffset = Random.Range(-25f, 25f);
+        float extraYOffset = Random.Range(-15f, 15f);
+        Vector3 offset = new Vector3(extraXOffset, baseYOffset + extraYOffset, 0);
+        text.transform.localPosition += offset; // offset relative to parent transform
+        text.GetComponent<TextController>().SetDamageText(value.ToString());
+    }
+
     public void SetExtraDamage(float value) {
         extraDamage = value;
     }
@@ -88,7 +103,11 @@ public abstract class Enemy : Entity
         Quaternion rot = Quaternion.Euler(75, 0, 0);
         enemyUI = Instantiate(enemyCanvasPrefab, pos, rot);
         enemyUI.transform.SetParent(transform, true);
-        healthBar = enemyUI.transform.GetChild(0).GetComponent<Slider>();
+        foreach(Transform child in enemyUI.transform){
+            if(child.name == "EnemyHpBar"){
+                healthBar = child.GetComponent<Slider>();
+            }
+        }
         SetSlider();
     }
 
