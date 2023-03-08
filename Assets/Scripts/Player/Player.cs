@@ -203,15 +203,29 @@ public class Player : Entity
             GameObject temp = secondaryWeapon;
 
             secondaryWeapon = primaryWeapon;
-            secondaryWeapon.GetComponent<MeshRenderer>().enabled = false;
+            DisableWeaponModelMeshes(secondaryWeapon);
             primaryWeapon = temp;
 
             if (!primaryWeapon.activeInHierarchy) {
                 primaryWeapon = SpawnWeapon(temp);
                 primaryWeapon.GetComponent<Weapon>().RefillClip();
             }
-            primaryWeapon.GetComponent<MeshRenderer>().enabled = true;
+            EnableWeaponModelMeshes(primaryWeapon);
             primaryWeapon.GetComponent<Weapon>().CheckMagazine();
+        }
+    }
+
+    private void EnableWeaponModelMeshes(GameObject weapon){
+        MeshRenderer[] childMeshRenderers = weapon.GetComponentsInChildren<MeshRenderer>();
+        foreach(MeshRenderer renderer in childMeshRenderers){
+            renderer.enabled = true;
+        }
+    }
+
+    private void DisableWeaponModelMeshes(GameObject weapon){
+        MeshRenderer[] childMeshRenderers = weapon.GetComponentsInChildren<MeshRenderer>();
+        foreach(MeshRenderer renderer in childMeshRenderers){
+            renderer.enabled = false;
         }
     }
 
