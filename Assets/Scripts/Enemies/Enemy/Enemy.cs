@@ -70,8 +70,11 @@ public abstract class Enemy : Entity
 
     public override void Damage(int value) {
         base.Damage(value);
-        Vector3 offset = new Vector3(0, -25, 0);
         GameObject text = Instantiate(damageTextPrefab, enemyUI.transform.position, enemyUI.transform.rotation, enemyUI.transform);
+        float baseYOffset = -25f;
+        float extraXOffset = Random.Range(-25f, 25f);
+        float extraYOffset = Random.Range(-15f, 15f);
+        Vector3 offset = new Vector3(extraXOffset, baseYOffset + extraYOffset, 0);
         text.transform.localPosition += offset; // offset relative to parent transform
         text.GetComponent<TextController>().SetDamageText(value.ToString());
     }
