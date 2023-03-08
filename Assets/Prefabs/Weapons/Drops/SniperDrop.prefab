@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a000e87fe4b8f2409a5b90957ec1aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: Sniper
   minCatchRadius: 5
 --- !u!1 &1834910441354391524
 GameObject:
@@ -197,6 +198,18 @@ PrefabInstance:
     - target: {fileID: 4711093766907938506, guid: 56012b6106501e39a881e5db9524060c, type: 3}
       propertyPath: m_Name
       value: DropUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880666667687760769, guid: 56012b6106501e39a881e5db9524060c, type: 3}
+      propertyPath: m_fontSize
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880666667687760769, guid: 56012b6106501e39a881e5db9524060c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954739444912856832, guid: 56012b6106501e39a881e5db9524060c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56012b6106501e39a881e5db9524060c, type: 3}
