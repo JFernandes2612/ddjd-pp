@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
@@ -91,7 +92,16 @@ public class Player : Entity
     // Destroys this GameObject instance
     protected override void Die()
     {
-        Destroy(gameObject);
+        StartCoroutine(LoadMainMenuAsyncScene());
+    }
+
+    private IEnumerator LoadMainMenuAsyncScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(0);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 
     // Handles collisions between this and other object instances
