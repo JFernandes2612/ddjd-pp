@@ -6,7 +6,6 @@ public abstract class Weapon : MonoBehaviour
 {
     [SerializeField]
     protected GameObject bulletPrefab;
-    [SerializeField]
     protected Transform shootPoint;
 
     // fields the specific weapon needs to know about
@@ -94,7 +93,7 @@ public abstract class Weapon : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         foreach(Transform child in transform){
-            if(child.tag == "ShootPoint"){
+            if(child.gameObject.CompareTag("ShootPoint")){
                 shootPoint = child;
                 break;
             }

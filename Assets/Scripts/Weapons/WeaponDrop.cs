@@ -36,17 +36,17 @@ public class WeaponDrop : MonoBehaviour
     void InitDropDescription(){
         foreach(Transform child in transform){
             // find popup child
-            if(child.tag == "popup ui"){
+            if(child.gameObject.CompareTag("popup ui")){
                 Transform canvasTransform = child.GetChild(0);
                 foreach(Transform canvasElement in canvasTransform){
                     // find description child
-                    if(canvasElement.tag == "DescriptionUI"){
+                    if(canvasElement.gameObject.CompareTag("DescriptionUI")){
                         canvasElement.GetComponent<TextController>().SetElementText(weaponName);
                         break;
                     }
                 }
                 break;
-            }    
+            }
         }
     }
 }
