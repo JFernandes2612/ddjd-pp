@@ -238,9 +238,11 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 1774974643893718006, guid: 98acaae286a4be04cb479b2eab56b4b4, type: 3}
   - {fileID: 8025142536786724047, guid: 60ac58471be86e570809132e8dd6d47f, type: 3}
+  - {fileID: 805686765844882017, guid: 51ac6955e6fef395c8903d7025f577d6, type: 3}
   enemySpawnChances:
-  - 0.8
-  - 0.2
+  - 0.75
+  - 0.24
+  - 0.01
   spawnRateScaling: 0.025
   enemyHealthScaling: 0.05
   enemyDamageScaling: 0.05

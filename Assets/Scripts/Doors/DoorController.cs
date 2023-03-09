@@ -56,8 +56,7 @@ public class DoorController : MonoBehaviour
         door2Rb = door2.GetComponent<Rigidbody>();
 
         InitCanvasDescription();
-        // TODO: check this
-        // doorCanvas.SetActive(false);
+        doorCanvas.SetActive(false);
 
         miniMapMark = transform.GetChild(0).gameObject;
         blocker = transform.GetChild(3).gameObject;
