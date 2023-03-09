@@ -17,6 +17,7 @@ public abstract class Enemy : Entity
     // enemy health bar prefab
     [SerializeField]
     private GameObject enemyCanvasPrefab;
+    [SerializeField]
     private Vector3 canvasOffsets = new Vector3(0, 1.0f, 0.7f);
     private GameObject enemyUI;
     private Slider healthBar;
