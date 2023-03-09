@@ -46,7 +46,7 @@ public abstract class Enemy : Entity
     private bool dead = false;
 
     // Fetches reference to the player model on the first frame
-    protected virtual void Start()
+    protected override void Start()
     {
         base.Start();
         setBaseStats();
