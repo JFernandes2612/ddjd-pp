@@ -2104,6 +2104,14 @@ PrefabInstance:
       propertyPath: doorCost
       value: 425
       objectReference: {fileID: 0}
+    - target: {fileID: 2489110544542809022, guid: b26bce91a7d0e3247a3a934696fc2ada, type: 3}
+      propertyPath: roomDropRate.Array.data[0]
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489110544542809022, guid: b26bce91a7d0e3247a3a934696fc2ada, type: 3}
+      propertyPath: roomDropRate.Array.data[1]
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2489110544685583040, guid: b26bce91a7d0e3247a3a934696fc2ada, type: 3}
       propertyPath: player
       value: 
