@@ -295,6 +295,10 @@ PrefabInstance:
       value: DropUI
       objectReference: {fileID: 0}
     - target: {fileID: 5880666667687760769, guid: 56012b6106501e39a881e5db9524060c, type: 3}
+      propertyPath: m_text
+      value: Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880666667687760769, guid: 56012b6106501e39a881e5db9524060c, type: 3}
       propertyPath: m_fontSize
       value: 1.5
       objectReference: {fileID: 0}
