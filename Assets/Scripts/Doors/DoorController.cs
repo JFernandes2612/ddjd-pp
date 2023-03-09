@@ -55,10 +55,23 @@ public class DoorController : MonoBehaviour
         door2 = transform.GetChild(2);
         door2Rb = door2.GetComponent<Rigidbody>();
 
-        doorCanvas.SetActive(false);
+        InitCanvasDescription();
+        // TODO: check this
+        // doorCanvas.SetActive(false);
 
         miniMapMark = transform.GetChild(0).gameObject;
         blocker = transform.GetChild(3).gameObject;
+    }
+
+    void InitCanvasDescription(){
+        Transform canvasTransform = doorCanvas.transform.GetChild(0);
+        foreach(Transform canvasElement in canvasTransform){
+            // find description child
+            if(canvasElement.tag == "DescriptionUI"){
+                canvasElement.GetComponent<TextController>().SetElementText("Cost: " + doorCost);
+                break;
+            }
+        }
     }
 
     // Update is called once per frame

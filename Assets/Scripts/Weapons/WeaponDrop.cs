@@ -7,11 +7,15 @@ public class WeaponDrop : MonoBehaviour
     private GameObject player;
 
     [SerializeField]
+    private string weaponName;
+
+    [SerializeField]
     private float minCatchRadius = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        InitDropDescription();
     }
 
     // Update is called once per frame
@@ -26,6 +30,23 @@ public class WeaponDrop : MonoBehaviour
 
                 Destroy(gameObject);
             }
+        }
+    }
+
+    void InitDropDescription(){
+        foreach(Transform child in transform){
+            // find popup child
+            if(child.tag == "popup ui"){
+                Transform canvasTransform = child.GetChild(0);
+                foreach(Transform canvasElement in canvasTransform){
+                    // find description child
+                    if(canvasElement.tag == "DescriptionUI"){
+                        canvasElement.GetComponent<TextController>().SetElementText(weaponName);
+                        break;
+                    }
+                }
+                break;
+            }    
         }
     }
 }

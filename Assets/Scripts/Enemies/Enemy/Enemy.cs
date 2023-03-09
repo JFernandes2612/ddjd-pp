@@ -76,7 +76,7 @@ public abstract class Enemy : Entity
         float extraYOffset = Random.Range(-15f, 15f);
         Vector3 offset = new Vector3(extraXOffset, baseYOffset + extraYOffset, 0);
         text.transform.localPosition += offset; // offset relative to parent transform
-        text.GetComponent<TextController>().SetDamageText(value.ToString());
+        text.GetComponent<TextController>().SetElementText(value.ToString());
     }
 
     public void SetExtraDamage(float value) {
