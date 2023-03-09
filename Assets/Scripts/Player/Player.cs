@@ -34,8 +34,9 @@ public class Player : Entity
     private GameObject damageTextPrefab;
     private GameObject playerUI;
 
-    protected void Start()
+    protected override void Start()
     {
+        base.Start();
         setBaseStats();
         rb = GetComponent<Rigidbody>();
         primaryWeapon = SpawnWeapon(primaryWeapon);

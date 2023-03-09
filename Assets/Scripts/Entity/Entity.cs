@@ -24,6 +24,14 @@ public abstract class Entity : MonoBehaviour
     protected int maxHealth;
     protected int health;
 
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip damageAudio;
+
+    protected virtual void Start(){
+        audioSource = GetComponent<AudioSource>();
+    }
+
     protected void setBaseStats() {
         moveSpeed = baseMoveSpeed;
         maxHealth = baseMaxHealth;
@@ -42,6 +50,7 @@ public abstract class Entity : MonoBehaviour
     }
 
     public virtual void Damage(int value) {
+        audioSource.PlayOneShot(damageAudio);
         health = Mathf.Max(health - value, 0);
     }
 

@@ -48,6 +48,7 @@ public abstract class Enemy : Entity
     // Fetches reference to the player model on the first frame
     protected virtual void Start()
     {
+        base.Start();
         setBaseStats();
         // Assert same sizes
         Debug.Assert(collectables.Length == minCollectablesDrop.Length);

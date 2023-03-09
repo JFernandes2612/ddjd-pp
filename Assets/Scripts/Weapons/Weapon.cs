@@ -30,7 +30,6 @@ public abstract class Weapon : MonoBehaviour
     private bool canShoot = true;
     private bool reloading = false;
 
-    [SerializeField]
     AudioSource audioSource;
     [SerializeField]
     AudioClip shootAudio;
