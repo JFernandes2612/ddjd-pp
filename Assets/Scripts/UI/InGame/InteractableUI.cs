@@ -9,6 +9,8 @@ public class InteractableUI : MonoBehaviour
     private GameObject canvas;
     [SerializeField]
     private float radius;
+    [SerializeField]
+    private float opacityThreshold = 5.0f;
     
     // Start is called before the first frame update
     void Start()
@@ -38,7 +40,10 @@ public class InteractableUI : MonoBehaviour
 
     private void SetCanvasOpacity(){
         CanvasGroup canvasGroup = canvas.GetComponent<CanvasGroup>();
-        float opacityThreshold = 5.0f;
+        if(opacityThreshold >= radius){
+            opacityThreshold = radius - 2.0f;
+        }
+        
         float dist = Vector3.Distance(playerTransform.position, transform.position);
         if(dist < opacityThreshold){
             canvasGroup.alpha = 1;
