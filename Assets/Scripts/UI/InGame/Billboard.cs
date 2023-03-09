@@ -14,7 +14,7 @@ public class Billboard : MonoBehaviour
     {
         cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
         entityTransform = transform.parent;
-        canvasOffsets = entityTransform.GetComponent<Enemy>().GetCanvasOffsets();
+        canvasOffsets = entityTransform.GetComponent<Entity>().GetCanvasOffsets();
     }
 
     // Update is called once per frame

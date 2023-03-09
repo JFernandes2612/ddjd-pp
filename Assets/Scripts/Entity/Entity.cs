@@ -4,6 +4,10 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
+    // canvas-related fields
+    [SerializeField]
+    protected Vector3 canvasOffsets = new Vector3(0, 1.0f, 0.7f);
+
     // Movement-related fields
     protected Rigidbody rb;
     protected Vector3 moveDirection;
@@ -24,6 +28,11 @@ public abstract class Entity : MonoBehaviour
         moveSpeed = baseMoveSpeed;
         maxHealth = baseMaxHealth;
         health = maxHealth;
+    }
+
+    public Vector3 GetCanvasOffsets()
+    {
+        return canvasOffsets;
     }
 
     // Moves the object instance
