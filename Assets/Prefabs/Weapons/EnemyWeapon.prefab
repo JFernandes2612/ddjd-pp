@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1462741489704342317, guid: 034328aca35f0c84b9ea38872dedad55, type: 3}
   shootPoint: {fileID: 0}
-  baseDamage: 5
-  bulletSpeed: 15
+  baseDamage: 2
+  bulletSpeed: 12.5
   range: 99999
   magazineSize: 16
   reloadSpeed: 0
