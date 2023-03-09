@@ -3,7 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BasicRanged : RangedEnemy
-{    
+{
+    bool movingRight = false;
+    protected override void Start()
+    {
+        base.Start();
+        StartCoroutine(ChangeHorizontalDirection());
+    }
+
+    IEnumerator ChangeHorizontalDirection(){
+        while(true){
+            float interval = Random.Range(0.2f, 2.0f);
+            yield return new WaitForSeconds(interval);
+            movingRight = !movingRight;
+        }
+    }
+
     // Calculates and returns the player's input
     protected override Vector3 GetMoveDirection()
     {
@@ -17,11 +32,13 @@ public class BasicRanged : RangedEnemy
             return -dir.normalized;
         }
         else{
-            int horizontalDir = (Random.Range(-1.0f, 1.0f) > 0) ? 1 : -1;
+            int horizontalDir = (movingRight) ? 1 : -1;
             Vector3 perpendicularDir = Vector3.Cross(dir, Vector3.up) * horizontalDir;
             return perpendicularDir.normalized;
         }
     }
+
+    
 
     protected override void rotateWeapon()
     {

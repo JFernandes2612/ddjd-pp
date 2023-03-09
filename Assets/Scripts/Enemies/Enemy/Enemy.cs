@@ -47,7 +47,7 @@ public abstract class Enemy : Entity
     private bool dead = false;
 
     // Fetches reference to the player model on the first frame
-    void Start()
+    protected virtual void Start()
     {
         setBaseStats();
         // Assert same sizes
