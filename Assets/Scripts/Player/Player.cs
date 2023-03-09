@@ -29,11 +29,23 @@ public class Player : Entity
     [SerializeField]
     private float immunityTime = 1.0f;
 
-    protected void Start()
+    // damage text prefab
+    [SerializeField]
+    private GameObject damageTextPrefab;
+    private GameObject playerUI;
+
+    protected override void Start()
     {
+        base.Start();
         setBaseStats();
         rb = GetComponent<Rigidbody>();
         primaryWeapon = SpawnWeapon(primaryWeapon);
+        foreach(Transform child in transform){
+            if(child.tag == "popup ui"){
+                playerUI = child.gameObject;
+                break;
+            }
+        }
     }
 
     private GameObject SpawnWeapon(GameObject weapon) {
@@ -102,6 +114,17 @@ public class Player : Entity
         {
             yield return null;
         }
+    }
+
+    public override void Damage(int value) {
+        base.Damage(value);
+        GameObject text = Instantiate(damageTextPrefab, playerUI.transform.position, playerUI.transform.rotation, playerUI.transform);
+        float baseYOffset = -25f;
+        float extraXOffset = Random.Range(-25f, 25f);
+        float extraYOffset = Random.Range(-15f, 15f);
+        Vector3 offset = new Vector3(extraXOffset, baseYOffset + extraYOffset, 0);
+        text.transform.localPosition += offset; // offset relative to parent transform
+        text.GetComponent<TextController>().SetElementText(value.ToString());
     }
 
     // Handles collisions between this and other object instances

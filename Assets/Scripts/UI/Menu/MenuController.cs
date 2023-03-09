@@ -16,6 +16,8 @@ public class MenuController : MonoBehaviour
     private GameObject mainMenuButtons;
     private GameObject instructions;
 
+    private GameObject environment;
+
     private void Start() {
         menuState = MenuState.MainMenu;
 
@@ -23,6 +25,8 @@ public class MenuController : MonoBehaviour
         mainMenuButtons.SetActive(true);
         instructions = transform.GetChild(3).gameObject;
         instructions.SetActive(false);
+        environment = transform.GetChild(4).gameObject;
+        environment.SetActive(true);
     }
 
     private void Update() {
@@ -44,11 +48,13 @@ public class MenuController : MonoBehaviour
             case MenuState.MainMenu:
                 mainMenuButtons.SetActive(true);
                 instructions.SetActive(false);
+                environment.SetActive(true);
                 break;
 
             case MenuState.Instructions:
                 mainMenuButtons.SetActive(false);
                 instructions.SetActive(true);
+                environment.SetActive(false);
                 break;
         }
     }

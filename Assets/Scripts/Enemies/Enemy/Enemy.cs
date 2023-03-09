@@ -17,7 +17,6 @@ public abstract class Enemy : Entity
     // enemy health bar prefab
     [SerializeField]
     private GameObject enemyCanvasPrefab;
-    private Vector3 canvasOffsets = new Vector3(0, 1.0f, 0.7f);
     private GameObject enemyUI;
     private Slider healthBar;
 
@@ -47,8 +46,9 @@ public abstract class Enemy : Entity
     private bool dead = false;
 
     // Fetches reference to the player model on the first frame
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         setBaseStats();
         // Assert same sizes
         Debug.Assert(collectables.Length == minCollectablesDrop.Length);
@@ -76,7 +76,7 @@ public abstract class Enemy : Entity
         float extraYOffset = Random.Range(-15f, 15f);
         Vector3 offset = new Vector3(extraXOffset, baseYOffset + extraYOffset, 0);
         text.transform.localPosition += offset; // offset relative to parent transform
-        text.GetComponent<TextController>().SetDamageText(value.ToString());
+        text.GetComponent<TextController>().SetElementText(value.ToString());
     }
 
     public void SetExtraDamage(float value) {
@@ -90,11 +90,6 @@ public abstract class Enemy : Entity
     public int getDamage()
     {
         return (int)(damage * (1.0f + extraDamage));
-    }
-
-    public Vector3 GetCanvasOffsets()
-    {
-        return canvasOffsets;
     }
 
     private void CreateEnemyUI()

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1774974643893718006
+--- !u!1 &805686765844882017
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1774974643893718005}
-  - component: {fileID: 1774974643893718008}
-  - component: {fileID: 1774974643893718009}
-  - component: {fileID: 1774974643893718004}
-  - component: {fileID: 1774974643893718010}
-  - component: {fileID: 1774974643893718011}
-  - component: {fileID: -6587076994942585582}
+  - component: {fileID: 805686765844882018}
+  - component: {fileID: 805686765844882031}
+  - component: {fileID: 805686765844882030}
+  - component: {fileID: 805686765844882019}
+  - component: {fileID: 805686765844882029}
+  - component: {fileID: 805686765844882028}
+  - component: {fileID: -4116425142118286821}
   m_Layer: 13
-  m_Name: Drone
+  m_Name: Miniboss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1774974643893718005
+--- !u!4 &805686765844882018
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774974643893718006}
+  m_GameObject: {fileID: 805686765844882017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.66, y: 1.5, z: 0}
+  m_LocalScale: {x: 2, y: 3.5, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1774974643893718008
+--- !u!33 &805686765844882031
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774974643893718006}
+  m_GameObject: {fileID: 805686765844882017}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1774974643893718009
+--- !u!23 &805686765844882030
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774974643893718006}
+  m_GameObject: {fileID: 805686765844882017}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b673de4ce82958c4b859220aa44f53aa, type: 2}
+  - {fileID: 2100000, guid: d291ee3d21d65ee1a9bb247299b14199, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,13 +87,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &1774974643893718004
+--- !u!54 &805686765844882019
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774974643893718006}
+  m_GameObject: {fileID: 805686765844882017}
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 1
@@ -101,65 +101,67 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &1774974643893718010
+--- !u!65 &805686765844882029
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774974643893718006}
+  m_GameObject: {fileID: 805686765844882017}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1774974643893718011
+--- !u!114 &805686765844882028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774974643893718006}
+  m_GameObject: {fileID: 805686765844882017}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8e5f68ac3667104aa661e8b99fd4dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasOffsets: {x: 0, y: 1, z: 0.7}
-  baseMoveSpeed: 7
-  baseMaxHealth: 10
+  canvasOffsets: {x: 0, y: 2, z: -0.7}
+  baseMoveSpeed: 5
+  baseMaxHealth: 100
   damageAudio: {fileID: 8300000, guid: 08f0ec8014916edfbae9ce58c4b5de2f, type: 3}
   damageTextPrefab: {fileID: 42048243061328561, guid: 570bcff66c293e9feaf6cd969efe834c, type: 3}
   enemyCanvasPrefab: {fileID: 3153150588936743938, guid: e7d69bf7d554d2ada9c9b57494fc6d72, type: 3}
-  damage: 5
-  points: 2
+  damage: 30
+  points: 100
   collectables:
   - {fileID: 5823442791628935116, guid: e043e849458bccc45a08a30aa5bb4d80, type: 3}
   - {fileID: 6677340210668900196, guid: 11a8607b0955da54a87f4a9b0a0d51f6, type: 3}
   minCollectablesDrop:
-  - 0
-  - 0
+  - 20
+  - 10
   maxCollectablesDrop:
-  - 5
-  - 3
+  - 100
+  - 30
   perks:
   - {fileID: 358900078382472889, guid: 1b1c2a57cebc44b4f9ba91da3bc8b9a0, type: 3}
   - {fileID: 358900078382472889, guid: 2c0a624ff3d8a13419400a337506c4bd, type: 3}
   - {fileID: 358900078382472889, guid: 2208cd586affdd4468be207debdebb0f, type: 3}
+  - {fileID: 358900078382472889, guid: 2cecda101ab6c4249826cf009d0ab639, type: 3}
   perksDropChances:
-  - 0.05
-  - 0.05
-  - 0.025
---- !u!82 &-6587076994942585582
+  - 0.2
+  - 0.2
+  - 0.3
+  - 0.3
+--- !u!82 &-4116425142118286821
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774974643893718006}
+  m_GameObject: {fileID: 805686765844882017}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
