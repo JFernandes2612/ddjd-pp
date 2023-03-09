@@ -30,6 +30,11 @@ public abstract class Weapon : MonoBehaviour
     private bool canShoot = true;
     private bool reloading = false;
 
+    [SerializeField]
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip shootAudio;
+
     private int bulletsInMagazine;
 
 
@@ -88,6 +93,7 @@ public abstract class Weapon : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         foreach(Transform child in transform){
             if(child.tag == "ShootPoint"){
                 shootPoint = child;
@@ -120,6 +126,7 @@ public abstract class Weapon : MonoBehaviour
             StartCoroutine(ShotCooldown());
             bulletsInMagazine--;
             InstantiateProjectiles();
+            audioSource.PlayOneShot(shootAudio);
             CheckMagazine();
         }
     }
