@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e5f68ac3667104aa661e8b99fd4dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasOffsets: {x: 0, y: 1, z: 0.7}
   baseMoveSpeed: 7
   baseMaxHealth: 10
   damageTextPrefab: {fileID: 42048243061328561, guid: 570bcff66c293e9feaf6cd969efe834c, type: 3}
@@ -147,6 +148,6 @@ MonoBehaviour:
   - {fileID: 358900078382472889, guid: 2c0a624ff3d8a13419400a337506c4bd, type: 3}
   - {fileID: 358900078382472889, guid: 2208cd586affdd4468be207debdebb0f, type: 3}
   perksDropChances:
-  - 0.075
   - 0.05
-  - 0.01
+  - 0.05
+  - 0.025
