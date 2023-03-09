@@ -7,8 +7,17 @@ TagManager:
   - Enemy
   - PlayerProjectile
   - EnemyProjectile
-  - PlayerModel
   - ProjectileEmpty
+  - CollectablesEmpty
+  - Coin
+  - HealthOrb
+  - Weapon
+  - Perk
+  - PerksEmpty
+  - WeaponDrop
+  - popup ui
+  - MainArena
+  - ShootPoint
   layers:
   - Default
   - TransparentFX
@@ -16,18 +25,18 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - MiniMap
+  - Walls
+  - Doors
+  - MainFloor
+  - AuxFloor
+  - PlayerProjectiles
+  - Player
+  - Enemies
+  - Collectible
+  - Perk
+  - WeaponDrop
+  - EnemyProjectiles
   - 
   - 
   - 
