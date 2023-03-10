@@ -276,12 +276,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<size=32>Welcome to <b>FEUPHell</b>!</size>\n\nYou play as a blue cube
-    engineer that was brought from another dimention to FEUP. At night all the cubes
-    in the world, yourself included, animate. But, during one of these nights, red
-    cubes started coming after you and they would not stop! \n\nYou will battle yourself
-    out of FEUP, fighting endless waves of enemies with a wide variaty of weapons
-    and perks to find!\nFeel free to explore the outside area of the faculty and
-    replicas of some of your favourite rooms."
+    engineer that was brought from another dimension to FEUP. At night, all the cubes
+    in the world, yourself included, animate. However, during one of these nights,
+    red cubes started coming after you and they would not stop! \n\nYou will battle
+    yourself out of FEUP, fighting endless waves of enemies with the help of a wide
+    variety of weapons and perks!\nFeel free to explore the outdoors area, as well
+    as replicas of some of your favourite rooms of the faculty."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
