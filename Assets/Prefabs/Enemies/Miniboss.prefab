@@ -132,6 +132,8 @@ MonoBehaviour:
   baseMoveSpeed: 5
   baseMaxHealth: 100
   damageAudio: {fileID: 8300000, guid: 08f0ec8014916edfbae9ce58c4b5de2f, type: 3}
+  damageFeedbackDuration: 0.05
+  damageColor: {r: 1, g: 1, b: 1, a: 1}
   damageTextPrefab: {fileID: 42048243061328561, guid: 570bcff66c293e9feaf6cd969efe834c, type: 3}
   enemyCanvasPrefab: {fileID: 3153150588936743938, guid: e7d69bf7d554d2ada9c9b57494fc6d72, type: 3}
   damage: 30

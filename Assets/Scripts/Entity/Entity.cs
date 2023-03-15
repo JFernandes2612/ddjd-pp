@@ -24,12 +24,23 @@ public abstract class Entity : MonoBehaviour
     protected int maxHealth;
     protected int health;
 
+    // Audio
     AudioSource audioSource;
     [SerializeField]
     AudioClip damageAudio;
 
+    // Damage feedback
+    MeshRenderer meshRenderer;
+    Color baseColor;
+    [SerializeField]
+    float damageFeedbackDuration = 0.05f;
+    [SerializeField]
+    Color damageColor = Color.white;
+
     protected virtual void Start(){
         audioSource = GetComponent<AudioSource>();
+        meshRenderer = GetComponent<MeshRenderer>();
+        baseColor = meshRenderer.material.color;
     }
 
     protected void setBaseStats() {
@@ -51,7 +62,14 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void Damage(int value) {
         audioSource.PlayOneShot(damageAudio);
+        StartCoroutine(DamageFeedback());
         health = Mathf.Max(health - value, 0);
+    }
+
+    private IEnumerator DamageFeedback(){
+        meshRenderer.material.color = damageColor;
+        yield return new WaitForSeconds(damageFeedbackDuration);
+        meshRenderer.material.color = baseColor;
     }
 
     public void Heal(int value) {
