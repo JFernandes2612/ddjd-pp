@@ -276,12 +276,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<size=32>Welcome to <b>FEUPHell</b>!</size>\n\nYou play as a blue cube
-    engineer that was brought from another dimension to FEUP. At night, all the cubes
-    in the world, yourself included, animate. However, during one of these nights,
-    red cubes started coming after you and they would not stop! \n\nYou will battle
-    yourself out of FEUP, fighting endless waves of enemies with the help of a wide
-    variety of weapons and perks!\nFeel free to explore the outdoors area, as well
-    as replicas of some of your favourite rooms of the faculty."
+    engineer that was brought from another dimension to FEUP. At night all the cubes
+    in the world, yourself included, animate. But, during one of these nights, red
+    cubes started coming after you and they would not stop! \n\nYou will battle yourself
+    out of FEUP, fighting endless waves of enemies with a wide variety of weapons
+    and perks to find!\nFeel free to explore the outside area of the faculty and
+    replicas of some of your favourite rooms.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1750,12 +1750,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<size=48><b>Instructions:</b></size>
+  m_text: 'size=48><b>Instructions:</b></size>
 
 
 
-    Use the <b>arrow keys</b>
-    or <b>WASD</b> to <b>move</b> the player.
+    Use the <b>arrow keys</b> or
+    <b>WASD</b> to <b>move</b> the player.
 
 
     Use the <b>mouse</b> to <b>aim</b>
@@ -1763,11 +1763,11 @@ MonoBehaviour:
 
 
     Use <b>Q</b> to
-    swap to your <b>secundary weapon</b>.
+    swap to your <b>secondary weapon</b>.
 
 
     Use <b>E</b> to interact with <b>gun
-    drops</b> or <b>doors</b>. You can only interact with with doors in between waves,
+    drops</b> or <b>doors</b>. You can only interact with doors in between waves,
     they show as a golden dot on the minimap.
 
 
@@ -1776,18 +1776,23 @@ MonoBehaviour:
 
 
 
-    On the left corner you can see your <b>health</b>,
-    <b>perks</b>, <b>equiped and secundary weapons</b> and <b>coins</b>.
+    On the top left corner of your screen, you can see
+    your <b>health</b>, <b>perks</b>, <b>equipped and secondary weapons</b> and <b>coins</b>.
 
 
     On
-    the top center of the screen you may found the <b>current wave</b>, <b>score</b>,
-    <b>time left</b> and <b>the time since the start of your game</b>.
+    the top centre, you can find the <b>current wave</b>, <b>score</b>, <b>time left</b>
+    and <b>the time since the start of your game</b>.
 
 
-    You
-    can press <b>ESC</b> to <b>leave the game</b> at anytime or <b>exit any menus</b>
-    (like this one :D).'
+    On the top right, you
+    can find the <b>minimap</b> where the player is represented by a <b>red dot</b>
+    while unlockable doors are a <b>yellow dot</b>.
+
+
+    You can press <b>ESC</b>
+    to <b>leave the game</b> at any time or <b>exit any menus</b> (like this one
+    :D).'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
