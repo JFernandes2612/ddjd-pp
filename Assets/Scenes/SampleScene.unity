@@ -2161,6 +2161,30 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1311216158}
+    - target: {fileID: 7213131457553744620, guid: b26bce91a7d0e3247a3a934696fc2ada, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213131457769523576, guid: b26bce91a7d0e3247a3a934696fc2ada, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213131457886734129, guid: b26bce91a7d0e3247a3a934696fc2ada, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.98934
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213131458558281302, guid: b26bce91a7d0e3247a3a934696fc2ada, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213131458676489390, guid: b26bce91a7d0e3247a3a934696fc2ada, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.98934
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213131458815905440, guid: b26bce91a7d0e3247a3a934696fc2ada, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.99658
+      objectReference: {fileID: 0}
     - target: {fileID: 8643098400813954988, guid: b26bce91a7d0e3247a3a934696fc2ada, type: 3}
       propertyPath: m_Name
       value: Environment
