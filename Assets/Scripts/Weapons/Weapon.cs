@@ -5,6 +5,9 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField]
+    private string weaponName;
+
+    [SerializeField]
     protected GameObject bulletPrefab;
     protected Transform shootPoint;
 
@@ -53,6 +56,10 @@ public abstract class Weapon : MonoBehaviour
     }
 
     // getters
+    public string getWeaponName() {
+        return weaponName;
+    }
+
     public int GetDamage()
     {
         return (int)((float)baseDamage * (1.0f + extraDamage));
