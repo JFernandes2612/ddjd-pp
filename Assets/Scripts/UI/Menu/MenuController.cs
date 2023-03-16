@@ -79,4 +79,18 @@ public class MenuController : MonoBehaviour
             yield return null;
         }
     }
+
+    public void SeeCredits()
+    {
+        StartCoroutine(LoadCreditsAsyncScene());
+    }
+
+    private IEnumerator LoadCreditsAsyncScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(2);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
 }
