@@ -47,15 +47,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd32e46c1aa9632797620288e511bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: Rifle
   bulletPrefab: {fileID: 1462741489704342317, guid: 06e0ed06fbf46ea73a5da967c78988e0, type: 3}
-  shootPoint: {fileID: 0}
   baseDamage: 2
   bulletSpeed: 40
   range: 99999
   magazineSize: 30
   reloadSpeed: 5
   baseFireRate: 10
-  audioSource: {fileID: 0}
   shootAudio: {fileID: 8300000, guid: 7bcf57abef68dc8ce92e07b7806dc541, type: 3}
   fireCursor: {fileID: 2800000, guid: 7ce832ef49566014ebf643770dbb4e3a, type: 3}
   reloadCursor: {fileID: 2800000, guid: 9765f7658aadef4448580d879b54748b, type: 3}

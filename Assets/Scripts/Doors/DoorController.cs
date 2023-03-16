@@ -67,7 +67,7 @@ public class DoorController : MonoBehaviour
         foreach(Transform canvasElement in canvasTransform){
             // find description child
             if(canvasElement.tag == "DescriptionUI"){
-                canvasElement.GetComponent<TextController>().SetElementText("Cost: " + doorCost);
+                canvasElement.GetComponent<TextController>().SetElementText("Cost: " + doorCost + " Coins");
                 break;
             }
         }
