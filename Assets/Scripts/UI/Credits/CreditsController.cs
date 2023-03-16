@@ -12,11 +12,9 @@ public class CreditsController : MonoBehaviour
 
     private IEnumerator LoadMenuAsyncScene()
     {
-        Debug.Log("inside");
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(0);
         while (!asyncLoad.isDone)
         {
-            Debug.Log("trying");
             yield return null;
         }
     }
