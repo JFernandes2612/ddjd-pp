@@ -1886,12 +1886,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'size=48><b>Instructions:</b></size>
+  m_text: '<size=48><b>Instructions:</b></size>
 
 
 
-    Use the <b>arrow keys</b> or
-    <b>WASD</b> to <b>move</b> the player.
+    Use the <b>arrow keys</b>
+    or <b>WASD</b> to <b>move</b> the player.
 
 
     Use the <b>mouse</b> to <b>aim</b>
